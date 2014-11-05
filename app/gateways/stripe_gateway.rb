@@ -12,7 +12,9 @@ class StripeGateway
       subscription.save!
       subscription
     rescue Stripe::InvalidRequestError => e
-      @logger.error "Create subscription failed due to : #{e.message}"
+      @logger.error "Create subscription failed due to Stripe::InvalidRequestError : #{e.message}"
+    rescue Stripe::InvalidRequestError => ire
+      @logger.error "Create subscription failed due to Stripe::InvalidRequestError : #{ire.message}"
     rescue Exception => ex
       @logger.error "Create subscription failed due to : #{ex.message}"  
     end

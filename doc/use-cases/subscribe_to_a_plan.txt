@@ -1,0 +1,20 @@
+Assumptions
+
+1. User authentication is out of scope. The user email is hard-coded to 'current_user.email' for now.
+2. Plans are created once. You can create it manually using the Stripe dashboard. You can also create it using the Stripe API. For details read the : Recurring Billing using Stripe API article. http://rubyplus.com/articles/941
+
+Use Case : Subscribe to Gold Plan
+
+Given that the Gold Plan already exists. Customer can signup for the gold plan.
+
+1. Go to http://localhost:3000/subscriptions/new
+2. Fill in 4242424242424242 for card number and any date in the future for expiration date.
+3. Click 'Subscribe Me' button.
+
+
+
+Test Secret Key : sk_test_6DDlSYysrSDSm8hj6nhtciqp
+Test Publishable Key : pk_test_YpSRnGy9qcYyI6VJfPk62t93
+
+export STRIPE_SECRET_KEY='sk_test_watHqWl2XD88WHqhknk7sqXN'
+export STRIPE_PUBLISHABLE_KEY='pk_test_GxDbP7Q6f4GkaUe0I0LrbQSz'

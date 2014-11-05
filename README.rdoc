@@ -31,4 +31,14 @@ Steps to get the application up and running.
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
 
+== Assumptions
+
+1) The user is already logged in.
+2) The user model will have email field.
+3) You can define : User has_one subscription, Subscription belongs_to user after you integrate with Devise, Authlogic etc.
+4) Move access over the network to a background job in a later version. 
+5) To make the demo simple, the stripe related code is in the application wide layout. This should be moved to a separate app/views/layouts/subscriptions.html.erb layout file. Use this layout in subscriptions controller by using the Rails layout method.
+6) The subscription page must be loaded using https.
+
+
 

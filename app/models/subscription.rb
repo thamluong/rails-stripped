@@ -4,7 +4,7 @@ class Subscription < ActiveRecord::Base
     case self.plan_name
     when 1
       'Silver'
-    when 2
+    when 'gold'
       'Gold'
     when 3
       'Platinum'
