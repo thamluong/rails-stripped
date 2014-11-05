@@ -1,11 +1,12 @@
 source 'https://rubygems.org'
 
 
-gem 'rails', '4.1.6'
+gem 'rails', '4.2.0.beta4'
 gem 'sqlite3'
-gem 'sass-rails', '~> 4.0.3'
+gem 'sass-rails', github: 'rails/sass-rails'
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
+gem 'libv8', '3.11.8.13'
 gem 'therubyracer',  platforms: :ruby
 
 gem 'jquery-rails'
@@ -17,3 +18,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 
 gem 'stripe'
+
+group :development do
+  gem 'web-console', '2.0.0.beta3'
+end

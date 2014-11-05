@@ -1,11 +1,15 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
+Steps to get the application up and running.
 
 * Ruby version
+	ruby-2.1.2
+	
+* RVM version
+	rvm 1.25.34 (master) 
+
+* Rails version	
+	Rails 4.2.0.beta4
 
 * System dependencies
 
@@ -26,3 +30,5 @@ Things you may want to cover:
 
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
+
+
