@@ -1,11 +1,11 @@
 
-
 <form action="create" method="POST" id="payment-form">
   <span class="payment-errors">
   	<noscript>JavaScript is not enabled and is required for this form. First enable it in your web browser settings.</noscript>
 	</div>
   </span>
   <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
+  <%= hidden_field_tag :plan_name, @subscription.plan_name %>
 
   <div class="form-row">
     <label>
