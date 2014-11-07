@@ -2,7 +2,7 @@ class SubscriptionsController < ApplicationController
   layout 'subscribe'
   
   def new
-    @subscription = Subscription.new(params.permit(:plan_name))    
+    @plan_name = params[:plan_name]
   end
   
   def create
