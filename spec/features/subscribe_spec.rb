@@ -2,7 +2,8 @@ require 'rails_helper'
 
 feature 'Subscription' do
   scenario 'Customer subscribes to Gold plan', js: true do
-    visit "/subscriptions/new"
+    visit "/pricing"
+    click_link 'Gold'
     fill_in "Card Number", with: '4242424242424242'
     page.select '10', from: "card_month"
     page.select '2029', from: 'card_year'
