@@ -1,4 +1,6 @@
 class SubscriptionsController < ApplicationController
+  layout 'subscribe'
+  
   def new
     @subscription = Subscription.new(params.permit(:plan_name))    
   end
