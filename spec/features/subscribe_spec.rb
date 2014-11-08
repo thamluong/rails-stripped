@@ -11,4 +11,6 @@ feature 'Subscription' do
     click_button 'Subscribe Me'
     expect(page).to have_content('You have been subscribed to Gold.')
   end
+  
+ 
 end

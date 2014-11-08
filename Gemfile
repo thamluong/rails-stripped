@@ -30,4 +30,5 @@ end
 group :test do
   gem 'capybara'
   gem 'selenium-webdriver'
+  gem 'stripe-ruby-mock'
 end
