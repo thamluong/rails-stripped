@@ -25,6 +25,3 @@ describe StripeGateway do
   end
   
 end
-
-
-
