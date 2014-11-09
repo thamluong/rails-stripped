@@ -6,8 +6,10 @@ class SubscriptionsController < ApplicationController
   end
   
   def create
-    stripe = StripeGateway.new(logger)
-    @subscription = stripe.create_subscription('current_user.email', params[:stripeToken], params[:plan_name])
+    @subscription = Actors::Customer::UseCases.subscribe_to_a_plan('current_user.email', 
+                                                                   params[:stripeToken], 
+                                                                   params[:plan_name], 
+                                                                   logger)    
   end
   
   def pricing

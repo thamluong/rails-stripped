@@ -26,3 +26,5 @@ module Striped
     config.autoload_paths << Rails.root.join('app/gateways')
   end
 end
+
+require_relative '../app/actors/customer/use_cases/subscribe_to_a_plan'

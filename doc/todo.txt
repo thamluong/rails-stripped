@@ -29,3 +29,4 @@ rescue => e
   # Something else happened, completely unrelated to Stripe
 end
 
+3. Purchase one product using Stripe. Allow guest checkout. Create account later as an option.

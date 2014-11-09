@@ -2,10 +2,8 @@ require 'rails_helper'
 
 describe SubscriptionsController do
   
-  it 'should delegate creating stripe customer and subscription record to stripe gateway' do
-    stripe_gateway = instance_double('StripeGateway')    
-    allow(StripeGateway).to receive_messages(:new => stripe_gateway)
-    allow(stripe_gateway).to receive(:create_subscription).with('current_user.email', '1', 'gold')
+  it 'should delegate creating stripe customer to stripe gateway' do    
+    allow(Actors::Customer::UseCases).to receive(:subscribe_to_a_plan).with('current_user.email', '1', 'gold', Rails.logger)
 
     post :create, { stripeToken: '1', plan_name: 'gold'}
   end

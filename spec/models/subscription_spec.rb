@@ -19,4 +19,11 @@ describe Subscription do
     expect(subscription).to be_complete
   end  
   
+  it 'should save customer subscription details' do
+    subscription = Subscription.new
+    subscription.save_details('1', 'gold')
+    
+    expect(subscription.stripe_customer_token).to eq('1')
+    expect(subscription.plan_name).to eq('gold')
+  end
 end
