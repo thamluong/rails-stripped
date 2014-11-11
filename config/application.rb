@@ -22,7 +22,6 @@ module Striped
     
     # Turn off Coffeescript
     config.generators.javascripts = false
-    
     config.autoload_paths << Rails.root.join('app/gateways')
   end
 end

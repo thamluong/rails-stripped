@@ -1,3 +1,9 @@
-<% if @subscription.complete? %>
-You have been subscribed to <%= @subscription.plan_display_name %>.
+<% if @subscription %>
+	<% if @subscription.complete? %>
+	You have been subscribed to <%= @subscription.plan_display_name %>.
+	<% else %>
+	 Subscription failed.
+	<% end %>
+<% else %>
+   Subscription is nil
 <% end %>

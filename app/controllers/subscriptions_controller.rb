@@ -6,10 +6,17 @@ class SubscriptionsController < ApplicationController
   end
   
   def create
-    @subscription = Actors::Customer::UseCases.subscribe_to_a_plan('current_user.email', 
-                                                                   params[:stripeToken], 
-                                                                   params[:plan_name], 
-                                                                   logger)    
+    begin
+      @subscription = Actors::Customer::UseCases.subscribe_to_a_plan('current_user.email', 
+                                                                     params[:stripeToken], 
+                                                                     params[:plan_name], 
+                                                                     logger)    
+    rescue Striped::CreditCardDeclined => e
+      @error_message = e.message
+      @subscription = Subscription.new
+                  
+      render :new
+    end
   end
   
   def pricing

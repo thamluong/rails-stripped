@@ -13,4 +13,9 @@ describe SubscriptionsController do
     
     expect(assigns(:plan_name)).to eq('gold')
   end
+
+  
 end
+
+
+
