@@ -18,6 +18,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 
 gem 'stripe'
+gem 'devise'
 
 group :development do
   gem 'web-console', '2.0.0.beta3'

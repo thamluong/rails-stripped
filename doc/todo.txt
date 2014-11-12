@@ -1,4 +1,1 @@
-1.After integration with user authentication gem like Devise, replace
-# the hard-coded dummy value 'current_user.email' with the current user email in SubscriptionsController     
-  
-2. Purchase one product using Stripe. Allow guest checkout. Create account later as an option.
+1. Purchase one product using Stripe. Allow guest checkout. Create account later as an option.

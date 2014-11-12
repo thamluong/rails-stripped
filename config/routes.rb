@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :users
+  
   get 'subscriptions/new' => 'subscriptions#new', as: :new_subscription
   post 'subscriptions/create' => 'subscriptions#create'
   
@@ -8,7 +10,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  root 'subscriptions#pricing'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
