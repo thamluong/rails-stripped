@@ -1,27 +1,4 @@
 1.After integration with user authentication gem like Devise, replace
 # the hard-coded dummy value 'current_user.email' with the current user email in SubscriptionsController     
   
-2. Make the Stripe related code robust. Write tests.
-
-begin
-  # Use Stripe's bindings...
-rescue Stripe::CardError => e
-  # Since it's a decline, Stripe::CardError will be caught
-	THIS IS DONE
-rescue Stripe::InvalidRequestError => e
-  # Invalid parameters were supplied to Stripe's API
-rescue Stripe::AuthenticationError => e
-  # Authentication with Stripe's API failed
-  # (maybe you changed API keys recently)
-rescue Stripe::APIConnectionError => e
-  # Network communication with Stripe failed
-rescue Stripe::StripeError => e
-  # Display a very generic error to the user, and maybe send
-  # yourself an email
-rescue => e
-  # Something else happened, completely unrelated to Stripe
-end
-
-3. Purchase one product using Stripe. Allow guest checkout. Create account later as an option.
-
-4. Create Test Cases Using https://stripe.com/docs/testing
+2. Purchase one product using Stripe. Allow guest checkout. Create account later as an option.

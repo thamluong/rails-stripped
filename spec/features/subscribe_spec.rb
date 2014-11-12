@@ -12,7 +12,7 @@ feature 'Subscription' do
     expect(page).to have_content('You have been subscribed to Gold.')
   end
   
-  scenario 'Customer subscription credit card decline', js: true do
+  scenario 'Customer credit card declined', js: true do
     visit "/pricing"
     click_link 'Gold'
     fill_in "Card Number", with: '4000000000000069'
@@ -22,5 +22,17 @@ feature 'Subscription' do
     click_button 'Subscribe Me'
     expect(page).to have_content('Your card has expired.')
   end
+  
+  scenario 'Customer credit card number incorrect', js: true do
+    visit "/pricing"
+    click_link 'Gold'
+    fill_in "Card Number", with: '4242424242424241'
+    page.select '10', from: "card_month"
+    page.select '2029', from: 'card_year'
+    
+    click_button 'Subscribe Me'
+    expect(page).to have_content('Your card number is incorrect.')    
+  end
+  
   
 end
