@@ -49,20 +49,26 @@ rake db:migrate
 
 * Deployment instructions
 
-* ...
-
 
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
 
+- [Recurring Billing using Stripe API](http://rubyplus.com/articles/941 'Stripe')
+- [Stripe Recurring Billing Part 2](http://rubyplus.com/articles/961 'Stripe')
+- [Stripe Recurring Billing Part 3 : Integration Testing using Capybara](http://rubyplus.com/articles/1161 'Stripe')
+- [Stripe Recurring Billing Part 4 : Pricing Page](http://rubyplus.com/articles/1181 'Stripe')
+- [Stripe Recurring Billing Part 5 : Testing using Stripe Ruby Mock Gem](http://rubyplus.com/articles/1191 'Stripe')
+- [Stripe Recurring Billing Part 6 : Making Use Cases Explicit to Achieve Traceability in a System](http://rubyplus.com/articles/1201 'Stripe')
+- [Stripe Recurring Billing Part 7 : Dealing with Exceptions](http://rubyplus.com/articles/1211 'Stripe')
+- [Stripe Recurring Billing Part 8: Using Devise for User Account Management](http://rubyplus.com/articles/1231 'Stripe')
+- [Striped Recurring Billing Part 9 : Reusing Integration Tests](http://rubyplus.com/articles/1241 'Stripe')
+
+
 == Assumptions
 
-1) The user is already logged in.
-2) The user model will have email field.
-3) You can define : User has_one subscription, Subscription belongs_to user after you integrate with Devise, Authlogic etc.
-4) Move access over the network to a background job in a later version. 
-5) To make the demo simple, the stripe related code is in the application wide layout. This should be moved to a separate app/views/layouts/subscriptions.html.erb layout file. Use this layout in subscriptions controller by using the Rails layout method.
-6) The subscription page must be loaded using https.
+1) You can define : User has_one subscription, Subscription belongs_to user after you integrate with Devise, Authlogic etc.
+2) Move access over the network to a background job in a later version. 
+3) The subscription page must be loaded using https.
 
 
 === Test Cases
