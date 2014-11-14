@@ -43,4 +43,30 @@ class StripeGateway
     end
   end
   
+  def charge(amount, stripe_token)
+    # amount in cents, again
+    begin
+      charge = Stripe::Charge.create(amount:      amount, 
+                                     currency:    "usd",
+                                     card:        stripe_token,
+                                     description: "guest-checkout@example.com")
+    rescue Stripe::CardError => e
+      # Since it's a decline, Stripe::CardError will be caught
+      body = e.json_body
+      err  = body[:error]
+
+      @logger.error "Status is: #{e.http_status}"
+      @logger.error "Type is: #{err[:type]}"
+      @logger.error "Code is: #{err[:code]}"
+      # param is '' in this case
+      @logger.error "Param is: #{err[:param]}"
+      @logger.error "Message is: #{err[:message]}" 
+
+      raise Striped::CreditCardDeclined.new(err[:message])     
+    rescue Exception => ex
+      @logger.error "Purchase failed due to : #{ex.message}"  
+      
+      raise
+    end
+  end
 end

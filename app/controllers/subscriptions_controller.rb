@@ -21,11 +21,4 @@ class SubscriptionsController < ApplicationController
   def pricing
   end
   
-  private
-  
-  def redisplay_form(message)
-    @error_message = message
-    
-    render :new
-  end
 end

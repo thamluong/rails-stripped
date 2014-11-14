@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  get 'sales/new' => 'sales#new', as: :buy
+  post 'sales/create' 
+
+  get 'products/show'
+  
   devise_for :users
   
   get 'subscriptions/new' => 'subscriptions#new', as: :new_subscription

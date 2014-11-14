@@ -4,12 +4,11 @@
   	<noscript>JavaScript is not enabled and is required for this form. First enable it in your web browser settings.</noscript>
 	</div>
   </span>
-  <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
-  <%= hidden_field_tag :plan_name, @plan_name %>
-
   <% if @error_message %>
 	<%= @error_message %>
   <% end %>
+
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
 
   <div class="form-row">
     <label>
@@ -22,12 +21,12 @@
     <label>
       <span>Expiration</span>
 <%= select_month nil, {add_month_numbers: true}, {name: nil, id: "card_month", data: {stripe: "exp-month"}} %>
-      
+
     </label>
     <span>/</span>
 	<%= select_year nil, {start_year: Date.today.year, end_year: Date.today.year+15}, {name: nil, id: "card_year", data: {stripe: "exp-year"}} %>
-	
+
   </div>
 
-  <button type="submit">Subscribe Me</button>
+  <button type="submit">Submit Payment</button>
 </form>
