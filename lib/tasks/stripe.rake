@@ -1,5 +1,5 @@
 
-
+desc 'Check Stripe Credentials'
 namespace :stripe do
   task :credentials_check => :environment do
     message = <<ERROR 
