@@ -54,14 +54,14 @@ class StripeGateway
       # Since it's a decline, Stripe::CardError will be caught
       body = e.json_body
       err  = body[:error]
-
+    
       @logger.error "Status is: #{e.http_status}"
       @logger.error "Type is: #{err[:type]}"
       @logger.error "Code is: #{err[:code]}"
       # param is '' in this case
       @logger.error "Param is: #{err[:param]}"
       @logger.error "Message is: #{err[:message]}" 
-
+    
       raise Striped::CreditCardDeclined.new(err[:message])     
     rescue Exception => ex
       @logger.error "Purchase failed due to : #{ex.message}"  
