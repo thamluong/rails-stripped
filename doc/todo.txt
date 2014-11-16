@@ -1,2 +1,1 @@
-1. Create account after guest checkout as an option.
-2. Remove hard-coded price in SalesController create method.
+1. Remove hard-coded product price in SalesController create method.

@@ -46,10 +46,13 @@ class StripeGateway
   def charge(amount, stripe_token)
     # amount in cents, again
     begin
-      charge = Stripe::Charge.create(amount:      amount, 
-                                     currency:    "usd",
-                                     card:        stripe_token,
-                                     description: "guest-checkout@example.com")
+      # Create a Customer
+      customer = Stripe::Customer.create(card: stripe_token, description: "guest-user@example.com")
+      # Charge the Customer instead of the card
+      Stripe::Charge.create(amount:   amount, 
+                            currency: "usd",
+                            customer: customer.id)
+      customer.id
     rescue Stripe::CardError => e
       # Since it's a decline, Stripe::CardError will be caught
       body = e.json_body

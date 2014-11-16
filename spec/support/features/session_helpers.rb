@@ -1,7 +1,6 @@
 module Features
   module SessionHelpers
     def sign_up(email, password)
-      User.destroy_all
       visit new_user_registration_path
       fill_in 'Email', with: email
       fill_in 'Password', with: password
@@ -18,5 +17,8 @@ module Features
       click_button 'Subscribe Me'
     end
     
+    def test_email
+      "guest_#{Time.now.to_i}#{rand(100)}@example.com"
+    end
   end
 end

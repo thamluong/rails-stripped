@@ -3,8 +3,9 @@ Rails.application.routes.draw do
   post 'sales/create' 
 
   get 'products/show'
+  get 'products/download' => 'products#download', as: :download
   
-  devise_for :users
+  devise_for :users, :controllers => {:registrations => "registrations"}
   
   get 'subscriptions/new' => 'subscriptions#new', as: :new_subscription
   post 'subscriptions/create' => 'subscriptions#create'

@@ -1,4 +1,5 @@
 class Subscription < ActiveRecord::Base
+  belongs_to :user
   
   def plan_display_name
     self.plan_name.humanize

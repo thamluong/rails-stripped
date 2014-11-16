@@ -6,8 +6,8 @@ class SubscriptionsController < ApplicationController
   end
   
   def create
-    begin
-      @subscription = Actors::Customer::UseCases.subscribe_to_a_plan(current_user.email, 
+    begin      
+      @subscription = Actors::Customer::UseCases.subscribe_to_a_plan(current_user, 
                                                                      params[:stripeToken], 
                                                                      params[:plan_name], 
                                                                      logger)    
@@ -19,6 +19,7 @@ class SubscriptionsController < ApplicationController
   end
   
   def pricing
+
   end
   
 end

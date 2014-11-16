@@ -4,7 +4,7 @@ require 'spec_helper'
 feature 'Subscription' do
     
   scenario 'Customer subscribes to Gold plan', js: true do
-    sign_up('test@example.com', '12345678') 
+    sign_up(test_email, '12345678') 
 
     subscribe_to_a_plan('Gold', '4242424242424242')
     
@@ -12,7 +12,7 @@ feature 'Subscription' do
   end
   
   scenario 'Customer credit card expired', js: true do
-    sign_up('test@example.com', '12345678') 
+    sign_up(test_email, '12345678') 
     
     subscribe_to_a_plan('Gold', '4000000000000069')
         
@@ -20,7 +20,7 @@ feature 'Subscription' do
   end
   
   scenario 'Customer credit card number incorrect', js: true do
-    sign_up('test@example.com', '12345678') 
+    sign_up(test_email, '12345678') 
     
     subscribe_to_a_plan('Gold', '4242424242424241')
     
@@ -28,7 +28,7 @@ feature 'Subscription' do
   end
 
   scenario 'Customer credit card declined', js: true do
-    sign_up('test@example.com', '12345678') 
+    sign_up(test_email, '12345678') 
     
     subscribe_to_a_plan('Gold', '4000000000000002')
     
@@ -36,7 +36,7 @@ feature 'Subscription' do
   end
 
   scenario 'Customer credit card processing error', js: true do
-    sign_up('test@example.com', '12345678') 
+    sign_up(test_email, '12345678') 
     
     subscribe_to_a_plan('Gold', '4000000000000119')
     
