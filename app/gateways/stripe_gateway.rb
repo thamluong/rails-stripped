@@ -42,9 +42,8 @@ class StripeGateway
       raise
     end
   end
-  
-  def charge(amount, stripe_token)
-    # amount in cents, again
+  # amount in cents
+  def save_credit_card_and_charge(amount, stripe_token)
     begin
       # Create a Customer
       customer = Stripe::Customer.create(card: stripe_token, description: "guest-user@example.com")

@@ -1,7 +1,7 @@
 class SubscriptionsController < ApplicationController
   layout 'subscribe'
   
-  def new
+  def new    
     @plan_name = params[:plan_name]
   end
   
@@ -14,6 +14,7 @@ class SubscriptionsController < ApplicationController
     rescue Striped::CreditCardDeclined => e
       redisplay_form(e.message)
     rescue Striped::CreditCardException, Exception => e
+      logger.info e.message
       redisplay_form("Subscription failed. We have been notified about this problem.")
     end
   end

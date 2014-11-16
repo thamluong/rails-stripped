@@ -2,8 +2,9 @@ require 'rails_helper'
 
 describe SubscriptionsController do
   
-  it 'should delegate creating stripe customer to stripe gateway' do    
-    allow(Actors::Customer::UseCases).to receive(:subscribe_to_a_plan).with('current_user.email', '1', 'gold', Rails.logger)
+  it 'should delegate creating stripe customer to stripe gateway' do 
+    sign_in   
+    expect(Actors::Customer::UseCases).to receive(:subscribe_to_a_plan) { true }
 
     post :create, { stripeToken: '1', plan_name: 'gold'}
   end
@@ -13,7 +14,7 @@ describe SubscriptionsController do
     
     expect(assigns(:plan_name)).to eq('gold')
   end
-
+  
   it 'should handle credit card exception' do
     post :create, {stripeToken: 'bogus', plan_name: 'junk' }
     
@@ -27,13 +28,11 @@ describe SubscriptionsController do
   end
   
   it 'should raise credit card exception when authentication error occurs' do
+    sign_in(User.new(email: 'junk'))   
     Stripe.api_key = 'junk'
-
+  
     post :create, {stripeToken: 'bogus', plan_name: 'junk' }
     
     expect(assigns(:error_message)).to eq('Subscription failed. We have been notified about this problem.')
   end
 end
-
-
-

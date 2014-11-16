@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
   def redisplay_form(message)
     @error_message = message
-
+    
     render :new
   end
 
