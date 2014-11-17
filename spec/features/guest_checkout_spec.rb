@@ -2,6 +2,10 @@ require 'rails_helper'
 require 'spec_helper'
 
 feature 'Guest Checkout' do
+  before(:all) do
+    Product.create(name: 'Rails 4 Quickly', price: 47)  
+  end
+  
   scenario 'Complete purchase of one product and register for an account', js: true do
     visit products_show_path
     click_link 'Buy Now'

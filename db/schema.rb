@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141115235616) do
+ActiveRecord::Schema.define(version: 20141117055933) do
+
+  create_table "products", force: true do |t|
+    t.string   "name",       limit: 255
+    t.decimal  "price",                  precision: 5, scale: 2
+    t.datetime "created_at",                                     null: false
+    t.datetime "updated_at",                                     null: false
+  end
 
   create_table "subscriptions", force: true do |t|
     t.string   "plan_name",             limit: 255

@@ -1,1 +1,1 @@
-1. Remove hard-coded product price in SalesController create method.
+1. Create a separate logger for Stripe

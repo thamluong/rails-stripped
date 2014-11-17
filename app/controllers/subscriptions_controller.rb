@@ -9,8 +9,7 @@ class SubscriptionsController < ApplicationController
     begin      
       @subscription = Actors::Customer::UseCases.subscribe_to_a_plan(current_user, 
                                                                      params[:stripeToken], 
-                                                                     params[:plan_name], 
-                                                                     logger)    
+                                                                     params[:plan_name])    
     rescue Striped::CreditCardDeclined => e
       redisplay_form(e.message)
     rescue Striped::CreditCardException, Exception => e
