@@ -12,7 +12,7 @@ class SalesController < ApplicationController
     rescue Striped::CreditCardDeclined => e
       redisplay_form(e.message)
     rescue Exception => e
-      logger.error "Guest checkout failed due to #{e.message}"
+      StripeLogger.error "Guest checkout failed due to #{e.message}"
       redisplay_form("Checkout failed. We have been notified about this problem.")
     ensure
       session[:product_id] = nil

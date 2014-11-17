@@ -1,7 +1,4 @@
 class StripeGateway
-  def initialize(logger)
-    @logger = logger
-  end
   
   def create_subscription(email, stripe_token, plan_id)
     begin
@@ -11,33 +8,33 @@ class StripeGateway
       body = e.json_body
       err  = body[:error]
 
-      @logger.error "Status is: #{e.http_status}"
-      @logger.error "Type is: #{err[:type]}"
-      @logger.error "Code is: #{err[:code]}"
+      StripeLogger.error "Status is: #{e.http_status}"
+      StripeLogger.error "Type is: #{err[:type]}"
+      StripeLogger.error "Code is: #{err[:code]}"
       # param is '' in this case
-      @logger.error "Param is: #{err[:param]}"
-      @logger.error "Message is: #{err[:message]}" 
+      StripeLogger.error "Param is: #{err[:param]}"
+      StripeLogger.error "Message is: #{err[:message]}" 
 
       raise Striped::CreditCardDeclined.new(err[:message])     
     rescue Stripe::InvalidRequestError => e
-      @logger.error "Create subscription failed due to Stripe::InvalidRequestError : #{e.message}"
+      StripeLogger.error "Create subscription failed due to Stripe::InvalidRequestError : #{e.message}"
       
       raise Striped::CreditCardException.new(e.message)
     rescue Stripe::AuthenticationError => e
-      @logger.error "Authentication with Stripe's API failed"
-      @logger.error "(maybe you changed API keys recently)"
+      StripeLogger.error "Authentication with Stripe's API failed"
+      StripeLogger.error "(maybe you changed API keys recently)"
       
       raise Striped::CreditCardException.new(e.message)
     rescue Stripe::APIConnectionError => e
-      @logger.error "Network communication with Stripe failed"
+      StripeLogger.error "Network communication with Stripe failed"
     
       raise Striped::CreditCardException.new(e.message)
     rescue Stripe::StripeError => e
-      @logger.error "Display a very generic error to the user, and maybe send yourself an email"
+      StripeLogger.error "Display a very generic error to the user, and maybe send yourself an email"
       
       raise Striped::CreditCardException.new(e.message)
     rescue Exception => ex
-      @logger.error "Create subscription failed due to : #{ex.message}"  
+      StripeLogger.error "Create subscription failed due to : #{ex.message}"  
       
       raise
     end
@@ -57,16 +54,16 @@ class StripeGateway
       body = e.json_body
       err  = body[:error]
     
-      @logger.error "Status is: #{e.http_status}"
-      @logger.error "Type is: #{err[:type]}"
-      @logger.error "Code is: #{err[:code]}"
+      StripeLogger.error "Status is: #{e.http_status}"
+      StripeLogger.error "Type is: #{err[:type]}"
+      StripeLogger.error "Code is: #{err[:code]}"
       # param is '' in this case
-      @logger.error "Param is: #{err[:param]}"
-      @logger.error "Message is: #{err[:message]}" 
+      StripeLogger.error "Param is: #{err[:param]}"
+      StripeLogger.error "Message is: #{err[:message]}" 
     
       raise Striped::CreditCardDeclined.new(err[:message])     
     rescue Exception => ex
-      @logger.error "Purchase failed due to : #{ex.message}"  
+      StripeLogger.error "Purchase failed due to : #{ex.message}"  
       
       raise
     end

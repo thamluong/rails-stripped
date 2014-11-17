@@ -13,7 +13,7 @@ class SubscriptionsController < ApplicationController
     rescue Striped::CreditCardDeclined => e
       redisplay_form(e.message)
     rescue Striped::CreditCardException, Exception => e
-      logger.info e.message
+      StripeLogger.error e.message
       redisplay_form("Subscription failed. We have been notified about this problem.")
     end
   end
