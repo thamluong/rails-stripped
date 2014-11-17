@@ -2,7 +2,7 @@ require 'rails_helper'
 require 'spec_helper'
 
 feature 'Guest Checkout' do
-  before(:all) do
+  before(:each) do
     Product.create(name: 'Rails 4 Quickly', price: 47)  
   end
   

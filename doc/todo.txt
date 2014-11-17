@@ -1,6 +1,4 @@
-1. Create a separate logger for Stripe
-
-
+1. One click checkout
 
 
 http://www.railsonmaui.com/blog/2013/05/08/strategies-for-rails-logging-and-error-handling/

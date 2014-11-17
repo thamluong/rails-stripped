@@ -32,4 +32,5 @@ group :test do
   gem 'capybara'
   gem 'selenium-webdriver'
   gem 'stripe-ruby-mock'
+  gem 'database_cleaner'
 end
