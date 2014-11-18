@@ -28,3 +28,4 @@ end
 
 require_relative '../app/actors/customer/use_cases/subscribe_to_a_plan'
 require_relative '../app/actors/customer/use_cases/guest_checkout'
+require_relative '../app/actors/customer/use_cases/one_click_checkout'

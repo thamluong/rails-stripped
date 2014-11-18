@@ -1,6 +1,6 @@
 class StripeGateway
   
-  def create_subscription(email, stripe_token, plan_id)
+  def self.create_subscription(email, stripe_token, plan_id)
     begin
       customer = Stripe::Customer.create(description: email, card: stripe_token, plan: plan_id)
     rescue Stripe::CardError => e
@@ -40,7 +40,7 @@ class StripeGateway
     end
   end
   # amount in cents
-  def save_credit_card_and_charge(amount, stripe_token)
+  def self.save_credit_card_and_charge(amount, stripe_token)
     begin
       # Create a Customer
       customer = Stripe::Customer.create(card: stripe_token, description: "guest-user@example.com")
@@ -68,4 +68,15 @@ class StripeGateway
       raise
     end
   end
+  
+  def self.charge(amount, customer_id)
+    begin
+      Stripe::Charge.create(amount: amount, currency: "usd", customer: customer_id)
+    rescue Exception => e
+      StripeLogger.error "Could not charge customer due to : #{e.message},  #{e.backtrace.join("\n")}"
+      
+      raise      
+    end
+  end
+  
 end

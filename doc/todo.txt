@@ -1,4 +1,5 @@
-1. One click checkout
+1. Update the email of the customer in Stripe if the user registers after guest checkout.
+2. Update customer credit card. Send email few weeks before expiration. Check Cahor for webhook code.
 
 
 http://www.railsonmaui.com/blog/2013/05/08/strategies-for-rails-logging-and-error-handling/

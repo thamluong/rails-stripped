@@ -10,4 +10,8 @@ class User < ActiveRecord::Base
     self.stripe_customer_id = sci
     save!                
   end
+  
+  def has_saved_credit_card?
+    !stripe_customer_id.nil?
+  end
 end
