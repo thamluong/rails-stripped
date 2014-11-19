@@ -2,4 +2,4 @@
 
 Price : <%= number_to_currency(@product.price) %>
 
-<%= link_to 'Buy Now', buy_path(id: @product) %>
+<%= link_to 'Buy Now', guest_checkout_path(id: @product) %>

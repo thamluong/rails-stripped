@@ -6,7 +6,7 @@ module Actors
         customer_id = user.stripe_customer_id
         amount = Product.price_in_cents_for(product_id)
         
-        StripeGateway.charge(amount: amount, customer: customer_id)
+        StripeGateway.charge(amount, customer_id)
       end      
       
     end

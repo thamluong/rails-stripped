@@ -12,9 +12,18 @@ class StripeCustomer
   end
   
   def self.transfer_guest_user_values_to_registered_user(guest_user, current_user)
-    current_user.save_stripe_customer_id(guest_user.stripe_customer_id)
-    credit_card = guest_user.credit_card
-    credit_card.user_id = current_user.id
-    credit_card.save!
+    # Bypass transfer for normal user registration. 
+    if user_registration_after_guest_checkout?(guest_user)
+      current_user.save_stripe_customer_id(guest_user.stripe_customer_id)
+      current_user.create_credit_card(last4digits: guest_user.credit_card.last4digits, 
+                                      expiration_month: guest_user.credit_card.expiration_month,  
+                                      expiration_year: guest_user.credit_card.expiration_year)
+    end
+  end
+  
+  private
+  # This is true only if someone registers after guest checkout is complete.
+  def self.user_registration_after_guest_checkout?(user)
+    user && user.credit_card
   end
 end

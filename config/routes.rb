@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   post 'stripe/webhook'
 
-  get 'sales/new' => 'sales#new', as: :buy
+  get 'sales/new' => 'sales#new', as: :guest_checkout
   post 'sales/create' 
 
   get 'products/show'

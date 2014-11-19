@@ -3,7 +3,7 @@ require 'rails_helper'
 require 'stripe'
 
 describe StripeGateway do
-  context 'success scenario' do
+  context 'Subscription' do
     let(:stripe_helper) { StripeMock.create_test_helper }
     let(:plan) { stripe_helper.create_plan(:id => 'gold', :amount => 1500) }
 
