@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe SalesController, :type => :controller do
+describe SalesController, :type => :controller do
 
   it "returns http success" do
     get :new

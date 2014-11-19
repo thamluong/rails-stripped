@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe ProductsController, :type => :controller do
+describe ProductsController, :type => :controller do
 
   it "returns http success for show action" do
     get :show

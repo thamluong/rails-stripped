@@ -1,5 +1,74 @@
-1. Update the email of the customer in Stripe if the user registers after guest checkout.
+1. Update the email of the customer in Stripe if the user registers after guest checkout. Do it in the background?
+
+def update_stripe
+  if stripe_id.nil?
+    if !stripe_token.present?
+      raise "We're doing something wrong -- this isn't supposed to happen"
+    end
+
+    customer = Stripe::Customer.create(
+      :email => email,
+      :description => stripe_description,
+      :card => stripe_token
+    )
+    self.last_4_digits = customer.active_card.last4
+    response = customer.update_subscription({:plan => "premium"})
+  else
+    customer = Stripe::Customer.retrieve(stripe_id)
+
+    if stripe_token.present?
+      customer.card = stripe_token
+    end
+
+    # in case they've changed
+    customer.email = email
+    customer.description = stripe_description
+
+    customer.save
+
+    self.last_4_digits = customer.active_card.last4
+  end
+
+  self.stripe_id = customer.id
+  self.stripe_token = nil
+end
+
+
 2. Update customer credit card. Send email few weeks before expiration. Check Cahor for webhook code.
 
 
+customer = Stripe::Customer.retrieve(@subscription.stripe_customer)
+card = customer.cards.first
+card.exp_month = params[:exp_month]
+card.exp_year = params[:exp_year]
+card.save
+
+
+
+
 http://www.railsonmaui.com/blog/2013/05/08/strategies-for-rails-logging-and-error-handling/
+class Utility
+  # Logs and emails exception
+  # Optional args:
+  # request: request Used for the ExceptionNotifier
+  # info: "A descriptive messsage"
+  def self.log_exception e, args
+    extra_info = args[:info]
+
+    Rails.logger.error extra_info if extra_info
+    Rails.logger.error e.message
+    st = e.backtrace.join("\n")
+    Rails.logger.error st
+
+    extra_info ||= "<NO DETAILS>"
+    request = args[:request]
+    env = request ? request.env : nil
+    if env
+      ExceptionNotifier::Notifier.exception_notification(env, e, :data => {:message => "Exception: #{extra_info}"}).deliver
+    else
+      ExceptionNotifier::Notifier.background_exception_notification(e, :data => {:message => "Exception: #{extra_info}"}).deliver
+     end
+  end
+end
+
+Change this to use deliver later using delayed job.

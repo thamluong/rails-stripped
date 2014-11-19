@@ -2,7 +2,7 @@ class StripeGateway
   
   def self.create_subscription(email, stripe_token, plan_id)
     begin
-      customer = Stripe::Customer.create(description: email, card: stripe_token, plan: plan_id)
+      Stripe::Customer.create(description: email, card: stripe_token, plan: plan_id)
     rescue Stripe::CardError => e
       # Since it's a decline, Stripe::CardError will be caught
       body = e.json_body
@@ -48,7 +48,7 @@ class StripeGateway
       Stripe::Charge.create(amount:   amount, 
                             currency: "usd",
                             customer: customer.id)
-      customer.id
+      customer
     rescue Stripe::CardError => e
       # Since it's a decline, Stripe::CardError will be caught
       body = e.json_body

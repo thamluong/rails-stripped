@@ -2,7 +2,7 @@ class RegistrationsController < Devise::RegistrationsController
   
   def create    
     super    
-    current_user.save_stripe_customer_id(guest_user.stripe_customer_id)
+    StripeCustomer.transfer_guest_user_values_to_registered_user(guest_user, current_user)
   end  
   
   def after_sign_up_path_for(resource)

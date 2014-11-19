@@ -1,0 +1,73 @@
+{
+  "id": "evt_150MhXKmUHg13gkF5GmUVsEz",
+  "created": 1416358327,
+  "livemode": false,
+  "type": "invoice.payment_failed",
+  "data": {
+    "object": {
+      "id": "ch_150MhXKmUHg13gkFrIAL0SYi",
+      "object": "charge",
+      "created": 1416358327,
+      "livemode": false,
+      "paid": true,
+      "amount": 4700,
+      "currency": "usd",
+      "refunded": false,
+      "card": {
+        "id": "card_150MhWKmUHg13gkFLNAGoMfA",
+        "object": "card",
+        "last4": "4242",
+        "brand": "Visa",
+        "funding": "credit",
+        "exp_month": 1,
+        "exp_year": 2015,
+        "fingerprint": "JbFvkc6RO9g2yFua",
+        "country": "US",
+        "name": null,
+        "address_line1": null,
+        "address_line2": null,
+        "address_city": null,
+        "address_state": null,
+        "address_zip": null,
+        "address_country": null,
+        "cvc_check": null,
+        "address_line1_check": null,
+        "address_zip_check": null,
+        "dynamic_last4": null,
+        "customer": "cus_5Ai7NfoTq4ECl8"
+      },
+      "captured": true,
+      "refunds": {
+        "object": "list",
+        "total_count": 0,
+        "has_more": false,
+        "url": "/v1/charges/ch_150MhXKmUHg13gkFrIAL0SYi/refunds",
+        "data": [
+
+        ]
+      },
+      "balance_transaction": "txn_150MhXKmUHg13gkFlEfxFP5T",
+      "failure_message": null,
+      "failure_code": null,
+      "amount_refunded": 0,
+      "customer": "cus_5Ai7NfoTq4ECl8",
+      "invoice": null,
+      "description": null,
+      "dispute": null,
+      "metadata": {
+      },
+      "statement_description": null,
+      "fraud_details": {
+        "stripe_report": "unavailable",
+        "user_report": null
+      },
+      "receipt_email": null,
+      "receipt_number": null,
+      "shipping": null
+    }
+  },
+  "object": "event",
+  "pending_webhooks": 1,
+  "request": "iar_5Ai76TaDoUlhI2",
+  "api_version": "2014-10-07"
+}

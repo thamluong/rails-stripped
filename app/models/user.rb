@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   
   has_one :subscription
+  has_one :credit_card
   
   def save_stripe_customer_id(sci)
     self.stripe_customer_id = sci
