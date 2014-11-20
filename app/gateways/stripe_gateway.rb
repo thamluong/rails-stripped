@@ -10,7 +10,7 @@ class StripeGateway
     run_with_stripe_exception_handler('StripeGateway.save_credit_card_and_charge failed due to') do
       # Create a Customer (save credit card)
       customer = Stripe::Customer.create(card: stripe_token, description: "guest-user@example.com")
-      # Charge the Customer instead of the card
+      # Charge the Customer instead of the card. We discard the response, since no exception means success.
       Stripe::Charge.create(amount:   amount, 
                             currency: "usd",
                             customer: customer.id)

@@ -1,6 +1,6 @@
 class StripeCustomer
   
-  def self.save(customer, user)
+  def self.save_credit_card_and_stripe_customer_id(customer, user)
     last4digits = customer.cards.data[0].last4
     expiration_month = customer.cards.data[0].exp_month
     expiration_year = customer.cards.data[0].exp_year

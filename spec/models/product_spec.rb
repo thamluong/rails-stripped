@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Product, :type => :model do
+describe Product, :type => :model do
   
   before do
     Product.destroy_all

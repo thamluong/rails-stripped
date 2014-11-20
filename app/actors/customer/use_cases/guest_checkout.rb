@@ -6,7 +6,7 @@ module Actors
         amount = Product.price_in_cents_for(product_id)
         customer = StripeGateway.save_credit_card_and_charge(amount, stripe_token)
 
-        StripeCustomer.save(customer, user)      
+        StripeCustomer.save_credit_card_and_stripe_customer_id(customer, user)      
       end      
       
     end

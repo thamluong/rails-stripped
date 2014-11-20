@@ -1,0 +1,87 @@
+{
+    "id": "cus_5AqM5SPXDkx4Tl",
+    "object": "customer",
+    "created": 1416388954,
+    "livemode": false,
+    "description": "test subscription",
+    "email": null,
+    "delinquent": false,
+    "metadata": {},
+    "subscriptions": {
+        "object": "list",
+        "total_count": 1,
+        "has_more": false,
+        "url": "/v1/customers/cus_5AqM5SPXDkx4Tl/subscriptions",
+        "data": [
+            {
+                "id": "sub_5AqM073tSdkMgv",
+                "plan": {
+                    "id": "gold",
+                    "interval": "month",
+                    "name": "Amazing Gold Plan",
+                    "created": 1415160352,
+                    "amount": 2000,
+                    "currency": "usd",
+                    "object": "plan",
+                    "livemode": false,
+                    "interval_count": 1,
+                    "trial_period_days": null,
+                    "metadata": {},
+                    "statement_description": null
+                },
+                "object": "subscription",
+                "start": 1416388954,
+                "status": "active",
+                "customer": "cus_5AqM5SPXDkx4Tl",
+                "cancel_at_period_end": false,
+                "current_period_start": 1416388954,
+                "current_period_end": 1418980954,
+                "ended_at": null,
+                "trial_start": null,
+                "trial_end": null,
+                "canceled_at": null,
+                "quantity": 1,
+                "application_fee_percent": null,
+                "discount": null,
+                "metadata": {}
+            }
+        ]
+    },
+    "discount": null,
+    "account_balance": 0,
+    "currency": "usd",
+    "cards": {
+        "object": "list",
+        "total_count": 1,
+        "has_more": false,
+        "url": "/v1/customers/cus_5AqM5SPXDkx4Tl/cards",
+        "data": [
+            {
+                "id": "card_150UekKmUHg13gkFdTz9kRjI",
+                "object": "card",
+                "last4": "4242",
+                "brand": "Visa",
+                "funding": "credit",
+                "exp_month": 11,
+                "exp_year": 2015,
+                "fingerprint": "JbFvkc6RO9g2yFua",
+                "country": "US",
+                "name": null,
+                "address_line1": null,
+                "address_line2": null,
+                "address_city": null,
+                "address_state": null,
+                "address_zip": null,
+                "address_country": null,
+                "cvc_check": "pass",
+                "address_line1_check": null,
+                "address_zip_check": null,
+                "dynamic_last4": null,
+                "customer": "cus_5AqM5SPXDkx4Tl"
+            }
+        ]
+    },
+    "default_card": "card_150UekKmUHg13gkFdTz9kRjI"
+}
+
+
