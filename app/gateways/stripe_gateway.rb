@@ -36,7 +36,7 @@ class StripeGateway
   end
   
   private
-  
+  # :nocov:
   def self.run_with_stripe_exception_handler(message)
     begin
       yield

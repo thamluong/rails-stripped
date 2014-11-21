@@ -1,3 +1,6 @@
+0. Integrate TB 3
+
+
 1. Send email few weeks before expiration. 
 
 2. Refactor this utility:

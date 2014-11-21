@@ -25,7 +25,7 @@ describe User, :type => :model do
   it 'should save credit card expiration date' do
     u = User.create(email: 'bogus@exmaple.com', password: '12345678')
     u.create_credit_card(last4digits: '4321', expiration_month: 1, expiration_year: 2015)
-    User.update_credit_card_expiration_date('1234', 2, 2020)
+    u.update_credit_card_expiration_date('1234', 2, 2020)
     
     user = User.last
     expect(user.credit_card.last4digits).to eq('1234')

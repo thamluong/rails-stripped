@@ -13,7 +13,7 @@ class StripeController < ApplicationController
       stripe_customer_token = event.data.object.customer
       user = User.where(stripe_customer_id: stripe_customer_token).first
       
-      UserMailer.suscription_payment_failed(user).deliver
+      UserMailer.suscription_payment_failed(user).deliver_now
     else
       StripeLogger.info "Webhook received params.inspect. Did not handle this event."  
     end  

@@ -6,7 +6,7 @@ class SalesController < ApplicationController
       user = current_or_guest_user
       if user.has_saved_credit_card?
         Actors::Customer::UseCases.one_click_checkout(user, params[:id])
-
+        # TODO: Diplay the last 4 digits of credit card used to charge the customer in the page.
         redirect_to download_path
       else
         session[:product_id] = params[:id]
