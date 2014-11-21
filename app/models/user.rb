@@ -15,4 +15,8 @@ class User < ActiveRecord::Base
   def has_saved_credit_card?
     !stripe_customer_id.nil?
   end
+  
+  def update_credit_card_expiration_date(last4digits, expiration_month, expiration_year)
+    self.credit_card.update_credit_card_expiration_date(last4digits, expiration_month, expiration_year)
+  end
 end

@@ -24,6 +24,17 @@ class StripeGateway
     end
   end
   
+  
+  def self.update_credit_card_expiration_date(stripe_customer_id, card_month, card_year)
+    run_with_stripe_exception_handler("Failed to update credit card expiration date") do
+      customer = Stripe::Customer.retrieve(stripe_customer_id)
+      card = customer.cards.first
+      card.exp_month = card_month
+      card.exp_year = card_year
+      card.save      
+    end
+  end
+  
   private
   
   def self.run_with_stripe_exception_handler(message)

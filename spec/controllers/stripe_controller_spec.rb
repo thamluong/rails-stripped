@@ -1,5 +1,4 @@
 require 'rails_helper'
-require 'stripe_mock'
 
 describe StripeController, :type => :controller do
 

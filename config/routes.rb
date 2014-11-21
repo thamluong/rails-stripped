@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'credit_cards/edit'
+  post 'credit_cards/update'
+
   post 'stripe/webhook'
 
   get 'sales/new' => 'sales#new', as: :guest_checkout

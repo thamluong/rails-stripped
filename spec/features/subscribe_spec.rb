@@ -11,7 +11,7 @@ feature 'Subscription' do
     
     expect(page).to have_content('You have been subscribed to Gold.')
   end
-  
+    
   scenario 'Customer credit card expired', js: true do
     sign_up(test_email, '12345678') 
     visit pricing_path
@@ -29,7 +29,7 @@ feature 'Subscription' do
     
     expect(page).to have_content('Your card number is incorrect.')    
   end
-
+  
   scenario 'Customer credit card declined', js: true do
     sign_up(test_email, '12345678') 
     visit pricing_path
@@ -38,7 +38,7 @@ feature 'Subscription' do
     
     expect(page).to have_content('Your card was declined.')
   end
-
+  
   scenario 'Customer credit card processing error', js: true do
     sign_up(test_email, '12345678') 
     visit pricing_path

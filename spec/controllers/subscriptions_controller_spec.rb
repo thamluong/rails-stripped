@@ -8,6 +8,15 @@ describe SubscriptionsController do
 
     post :create, { stripeToken: '1', plan_name: 'gold'}
   end
+
+  it 'should initialize the plan name to be displayed in create page' do 
+    sign_in   
+    allow(Actors::Customer::UseCases).to receive(:subscribe_to_a_plan) { true }
+
+    post :create, { stripeToken: '1', plan_name: 'gold'}
+    
+    expect(assigns(:plan_name)).to eq('gold')
+  end
   
   it 'should initialize plan name' do
     get :new, {plan_name: 'gold'}

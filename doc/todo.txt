@@ -1,11 +1,4 @@
-1. Update customer credit card expiration date. Send email few weeks before expiration. Check Cahor for webhook code.
-
-customer = Stripe::Customer.retrieve(@subscription.stripe_customer)
-card = customer.cards.first
-card.exp_month = params[:exp_month]
-card.exp_year = params[:exp_year]
-card.save
-
+1. Send email few weeks before expiration. 
 
 2. Refactor this utility:
 

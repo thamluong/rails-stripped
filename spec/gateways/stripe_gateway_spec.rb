@@ -32,4 +32,17 @@ describe StripeGateway do
     expect(customer.id).to eq('cus_5AqFj04bLNXGYL')
   end
   
+  it 'update credit card expiration date' do
+    h = JSON.parse(File.read("spec/support/fixtures/customer.json"))
+    customer = Stripe::Customer.construct_from(h)        
+    allow(Stripe::Customer).to receive(:retrieve) { customer }
+    
+    h2 = JSON.parse(File.read("spec/support/fixtures/credit_card.json"))
+    cc = Stripe::Card.construct_from(h2)
+    allow(customer).to receive_message_chain(:cards, :first) { cc }
+    
+    credit_card = StripeGateway.update_credit_card_expiration_date(1, 1, 2050)
+    
+    expect(credit_card.id).to eq('card_150UekKmUHg13gkFdTz9kRjI')
+  end
 end

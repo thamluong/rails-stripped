@@ -23,9 +23,12 @@ module Striped
     # Turn off Coffeescript
     config.generators.javascripts = false
     config.autoload_paths << Rails.root.join('app/gateways')
+    
+    config.action_mailer.default_url_options = { host: 'rubyplus.com' }
   end
 end
 
 require_relative '../app/actors/customer/use_cases/subscribe_to_a_plan'
 require_relative '../app/actors/customer/use_cases/guest_checkout'
 require_relative '../app/actors/customer/use_cases/one_click_checkout'
+require_relative '../app/actors/customer/use_cases/update_credit_card_expiration_date'

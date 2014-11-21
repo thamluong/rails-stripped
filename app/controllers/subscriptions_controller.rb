@@ -2,14 +2,15 @@ class SubscriptionsController < ApplicationController
   layout 'subscribe'
   
   def new    
-    @plan_name = params[:plan_name]
+    @plan_name = params[:plan_name]      
   end
   
-  def create
+  def create    
     begin      
-      @subscription = Actors::Customer::UseCases.subscribe_to_a_plan(current_user, 
-                                                                     params[:stripeToken], 
-                                                                     params[:plan_name])    
+      @success = Actors::Customer::UseCases.subscribe_to_a_plan(current_user, 
+                                                                params[:stripeToken], 
+                                                                params[:plan_name])    
+      @plan_name = params[:plan_name]
     rescue Striped::CreditCardDeclined => e
       redisplay_form(e.message)
     rescue Striped::CreditCardException, Exception => e

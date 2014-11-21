@@ -3,7 +3,7 @@ class UserMailer < ActionMailer::Base
   
   def suscription_payment_failed(user)
     @user = user
-    @url = 'http://yoursite.com/update/credit_card'
+    @url = credit_cards_edit_url
     
     mail(to: @user.email, subject: 'Payment to RubyPlus Failed')
   end

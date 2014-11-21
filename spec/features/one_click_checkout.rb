@@ -29,10 +29,9 @@ feature 'One click checkout' do
     click_link 'Login'
     fill_in 'Email', with: 'test@example.com'
     fill_in 'Password', with: '12345678'
-    
     click_button 'Log in'
     
-    # 5. Makes a purchase without providing any credit card details.
+    # 5. Makes a purchase without providing any credit card details using one-click checkout.
     visit products_show_path
     click_link 'Buy Now'
     

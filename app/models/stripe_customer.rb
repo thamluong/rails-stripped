@@ -1,5 +1,13 @@
 class StripeCustomer
   
+  # Use Case : Subscribe to a plan
+  def self.save_subscription_details(user, customer, plan_name)
+    user.create_subscription(stripe_customer_token: customer.id, plan_name: plan_name)    
+    save_credit_card_and_stripe_customer_id(customer, user)    
+  end
+  
+  # Use Case : Guest Checkout
+  # Save the stripe response values in our database
   def self.save_credit_card_and_stripe_customer_id(customer, user)
     last4digits = customer.cards.data[0].last4
     expiration_month = customer.cards.data[0].exp_month
@@ -11,6 +19,7 @@ class StripeCustomer
                             expiration_year: expiration_year)
   end
   
+  # Transfer guest user to current user. Happens when guest user registers for an account at the end of guest checkout.
   def self.transfer_guest_user_values_to_registered_user(guest_user, current_user)
     # Bypass transfer for normal user registration. 
     if user_registration_after_guest_checkout?(guest_user)
@@ -22,8 +31,10 @@ class StripeCustomer
   end
   
   private
+  
   # This is true only if someone registers after guest checkout is complete.
   def self.user_registration_after_guest_checkout?(user)
     user && user.credit_card
   end
+  
 end
