@@ -14,27 +14,27 @@
       <img src="./assets/0.8.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2014-11-21T15:21:24-08:00">2014-11-21T15:21:24-08:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2014-11-21T16:41:06-08:00">2014-11-21T16:41:06-08:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="green">95.92%</span></span>
+    (<span class="covered_percent"><span class="green">95.57%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         2.36
+         2.32
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
-    <b>43</b> files in total.
-    <b>417</b> relevant lines. 
-    <span class="green"><b>400</b> lines covered</span> and
-    <span class="red"><b>17</b> lines missed </span>
+    <b>45</b> files in total.
+    <b>429</b> relevant lines. 
+    <span class="green"><b>410</b> lines covered</span> and
+    <span class="red"><b>19</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -49,6 +49,16 @@
       </tr>
     </thead>
     <tbody>
+      
+      <tr>
+        <td class="strong"><a href="#eac21bf94e9dd8779646b19bc8e85b99972874c9" class="src_link" title="app/actors/customer/use_cases/add_new_credit_card.rb">app/actors/customer/use_cases/add_new_credit_card.rb</a></td>
+        <td class="green strong">100.0 %</td>
+        <td>13</td>
+        <td>4</td>
+        <td>4</td>
+        <td>0</td>
+        <td>1.0</td>
+      </tr>
       
       <tr>
         <td class="strong"><a href="#c0310afbf5a0a26e73ec524382d0ee5bf5b87133" class="src_link" title="app/actors/customer/use_cases/guest_checkout.rb">app/actors/customer/use_cases/guest_checkout.rb</a></td>
@@ -88,6 +98,16 @@
         <td>6</td>
         <td>0</td>
         <td>1.0</td>
+      </tr>
+      
+      <tr>
+        <td class="strong"><a href="#c5a7758f86c2100e35b8aa12ebe893602d55d5c0" class="src_link" title="app/actors/stripe/use_cases/process_subscription_payment_failure.rb">app/actors/stripe/use_cases/process_subscription_payment_failure.rb</a></td>
+        <td class="red strong">66.67 %</td>
+        <td>13</td>
+        <td>6</td>
+        <td>4</td>
+        <td>2</td>
+        <td>0.7</td>
       </tr>
       
       <tr>
@@ -243,9 +263,9 @@
       <tr>
         <td class="strong"><a href="#b068bd0a7568433eada6e072b54f1bb432594a67" class="src_link" title="config/application.rb">config/application.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>34</td>
-        <td>12</td>
-        <td>12</td>
+        <td>39</td>
+        <td>14</td>
+        <td>14</td>
         <td>0</td>
         <td>1.0</td>
       </tr>
@@ -495,6 +515,102 @@
       </div>
     
       <div class="source_files">
+      
+        <div class="source_table" id="eac21bf94e9dd8779646b19bc8e85b99972874c9">
+  <div class="header">
+    <h3>app/actors/customer/use_cases/add_new_credit_card.rb</h3>
+    <h4><span class="green">100.0 %</span> covered</h4>
+    <div>
+      <b>4</b> relevant lines. 
+      <span class="green"><b>4</b> lines covered</span> and
+      <span class="red"><b>0</b> lines missed.</span>
+    </div>
+  </div>
+  
+  <pre>
+    <ol>
+      
+        <li class="covered" data-hits="1" data-linenumber="1">
+          <span class="hits">1</span>
+          
+          <code class="ruby">module Actors</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="2">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  module Customer</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="3">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    module UseCases</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="4">
+          
+          
+          <code class="ruby">      </code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="5">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      def self.add_new_credit_card()</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="6">
+          
+          
+          <code class="ruby">        # TODO : </code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="7">
+          
+          
+          <code class="ruby">        # StripeGateway.add_new_credit_card</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="8">
+          
+          
+          <code class="ruby">        # Update local database with last 4 digits, expiration date and month.  </code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="9">
+          
+          
+          <code class="ruby">      end      </code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="10">
+          
+          
+          <code class="ruby">      </code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="11">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="12">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="13">
+          
+          
+          <code class="ruby">end</code>
+        </li>
+      
+    </ol>
+  </pre>
+</div>
       
         <div class="source_table" id="c0310afbf5a0a26e73ec524382d0ee5bf5b87133">
   <div class="header">
@@ -856,6 +972,102 @@
           <span class="hits">1</span>
           
           <code class="ruby">        user.update_credit_card_expiration_date(cc.last4, cc.exp_month, cc.exp_year)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="9">
+          
+          
+          <code class="ruby">      end      </code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="10">
+          
+          
+          <code class="ruby">      </code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="11">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="12">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="13">
+          
+          
+          <code class="ruby">end</code>
+        </li>
+      
+    </ol>
+  </pre>
+</div>
+      
+        <div class="source_table" id="c5a7758f86c2100e35b8aa12ebe893602d55d5c0">
+  <div class="header">
+    <h3>app/actors/stripe/use_cases/process_subscription_payment_failure.rb</h3>
+    <h4><span class="red">66.67 %</span> covered</h4>
+    <div>
+      <b>6</b> relevant lines. 
+      <span class="green"><b>4</b> lines covered</span> and
+      <span class="red"><b>2</b> lines missed.</span>
+    </div>
+  </div>
+  
+  <pre>
+    <ol>
+      
+        <li class="covered" data-hits="1" data-linenumber="1">
+          <span class="hits">1</span>
+          
+          <code class="ruby">module Actors</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="2">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  module Stripe</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="3">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    module UseCases</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="4">
+          
+          
+          <code class="ruby">      </code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="5">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      def self.process_subscription_payment_failure(stripe_customer_token)</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="6">
+          
+          
+          <code class="ruby">        user = User.where(stripe_customer_id: stripe_customer_token).first</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="7">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="8">
+          
+          
+          <code class="ruby">        UserMailer.subscription_payment_failed(user).deliver_now</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="9">
@@ -3123,8 +3335,8 @@
     <h3>config/application.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>12</b> relevant lines. 
-      <span class="green"><b>12</b> lines covered</span> and
+      <b>14</b> relevant lines. 
+      <span class="green"><b>14</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -3312,28 +3524,58 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="31">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="31">
           
-          <code class="ruby">require_relative &#39;../app/actors/customer/use_cases/subscribe_to_a_plan&#39;</code>
+          
+          <code class="ruby"># Customer actor</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="32">
           <span class="hits">1</span>
           
-          <code class="ruby">require_relative &#39;../app/actors/customer/use_cases/guest_checkout&#39;</code>
+          <code class="ruby">require_relative &#39;../app/actors/customer/use_cases/subscribe_to_a_plan&#39;</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="33">
           <span class="hits">1</span>
           
-          <code class="ruby">require_relative &#39;../app/actors/customer/use_cases/one_click_checkout&#39;</code>
+          <code class="ruby">require_relative &#39;../app/actors/customer/use_cases/guest_checkout&#39;</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="34">
           <span class="hits">1</span>
           
+          <code class="ruby">require_relative &#39;../app/actors/customer/use_cases/one_click_checkout&#39;</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="35">
+          <span class="hits">1</span>
+          
           <code class="ruby">require_relative &#39;../app/actors/customer/use_cases/update_credit_card_expiration_date&#39;</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="36">
+          <span class="hits">1</span>
+          
+          <code class="ruby">require_relative &#39;../app/actors/customer/use_cases/add_new_credit_card&#39;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="37">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="38">
+          
+          
+          <code class="ruby"># Stripe System actor</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="39">
+          <span class="hits">1</span>
+          
+          <code class="ruby">require_relative &#39;../app/actors/stripe/use_cases/process_subscription_payment_failure&#39;</code>
         </li>
       
     </ol>

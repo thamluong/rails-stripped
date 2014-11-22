@@ -200,9 +200,14 @@
         null,
         null,
         null,
+        null,
         1,
         1,
         1,
+        1,
+        1,
+        null,
+        null,
         1
       ],
       "/Users/zepho/bitbuck/striped/config/boot.rb": [
@@ -267,6 +272,36 @@
         1,
         null,
         1,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/Users/zepho/bitbuck/striped/app/actors/customer/use_cases/add_new_credit_card.rb": [
+        1,
+        1,
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/Users/zepho/bitbuck/striped/app/actors/stripe/use_cases/process_subscription_payment_failure.rb": [
+        1,
+        1,
+        1,
+        null,
+        1,
+        0,
+        null,
+        0,
         null,
         null,
         null,
@@ -1283,6 +1318,6 @@
         null
       ]
     },
-    "timestamp": 1416612084
+    "timestamp": 1416616866
   }
 }

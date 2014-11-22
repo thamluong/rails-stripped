@@ -11,9 +11,7 @@ class StripeController < ApplicationController
 
     if event.type == SUBSCRIPTION_PAYMENT_FAILED
       stripe_customer_token = event.data.object.customer
-      user = User.where(stripe_customer_id: stripe_customer_token).first
-      
-      UserMailer.suscription_payment_failed(user).deliver_now
+      Actors::Stripe::UseCases.process_subscription_payment_failure(stripe_customer_token)
     else
       StripeLogger.info "Webhook received params.inspect. Did not handle this event."  
     end  

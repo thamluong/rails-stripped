@@ -1,4 +1,14 @@
-== README
+= README
+
+
+==Features
+
+- Guest Checkout
+- One click checkout
+- Recurring billing : subscribe to a plan
+- Update credit card expiration date
+- Process subscription payment failures
+- Add a new credit card
 
 Steps to get the application up and running.
 
@@ -60,7 +70,7 @@ None
 
 None
 
-* Articles with Step by Step Instructions
+==Articles with Step by Step Instructions
 
 - [Recurring Billing using Stripe API](http://rubyplus.com/articles/941 'Stripe')
 - [Stripe Recurring Billing Part 2](http://rubyplus.com/articles/961 'Stripe')

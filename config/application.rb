@@ -28,7 +28,12 @@ module Striped
   end
 end
 
+# Customer actor
 require_relative '../app/actors/customer/use_cases/subscribe_to_a_plan'
 require_relative '../app/actors/customer/use_cases/guest_checkout'
 require_relative '../app/actors/customer/use_cases/one_click_checkout'
 require_relative '../app/actors/customer/use_cases/update_credit_card_expiration_date'
+require_relative '../app/actors/customer/use_cases/add_new_credit_card'
+
+# Stripe System actor
+require_relative '../app/actors/stripe/use_cases/process_subscription_payment_failure'

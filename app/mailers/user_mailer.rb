@@ -1,7 +1,7 @@
 class UserMailer < ActionMailer::Base
   default from: "from@your-domain.com"
   
-  def suscription_payment_failed(user)
+  def subscription_payment_failed(user)
     @user = user
     @url = credit_cards_edit_url
     
