@@ -804,6 +804,7 @@
       ],
       "/Users/zepho/bitbuck/striped/spec/support/controller_helpers.rb": [
         1,
+        null,
         1,
         0,
         0,
@@ -1024,6 +1025,7 @@
         6,
         null,
         6,
+        null,
         null,
         null,
         null,
@@ -1318,6 +1320,6 @@
         null
       ]
     },
-    "timestamp": 1416616866
+    "timestamp": 1416651781
   }
 }
