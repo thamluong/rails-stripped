@@ -1,5 +1,14 @@
 class CreditCardsController < ApplicationController
+  layout 'stripe'
   before_action :authenticate_user!
+  
+  def new
+    
+  end
+  
+  def create
+    @card = Actors::Customer::UseCases.add_new_credit_card(current_user, params[:stripeToken])
+  end
   
   def edit
     # TODO : Only users who have already subscribed or purchased a product will have a credit card.

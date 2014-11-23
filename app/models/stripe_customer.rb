@@ -1,5 +1,10 @@
 class StripeCustomer
   
+  # Use Case : Add New Credit Card
+  def self.save_credit_card_details(card, user)
+    user.save_credit_card_details(card.last4, card.exp_month, card.exp_year)
+  end
+  
   # Use Case : Subscribe to a plan
   def self.save_subscription_details(user, customer, plan_name)
     user.create_subscription(stripe_customer_token: customer.id, plan_name: plan_name)    

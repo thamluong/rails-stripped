@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  
+  get 'credit_cards/new'
+  post 'credit_cards/create'
   get 'credit_cards/edit'
   post 'credit_cards/update'
 

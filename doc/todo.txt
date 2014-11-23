@@ -1,6 +1,5 @@
 1. If credit card is about to expire, redirect user to update credit card page after login.
-2. Add a new credit card. 
-3. Integrate TB 3
+2. Integrate TB 3
 
 
 

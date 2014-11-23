@@ -57,10 +57,7 @@ rake db:migrate
 
 You must have plans created in your Stripe account. Create one plan that has id of 'gold'.
 
-rake spec:models
-rake spec:controllers
-rake spec:features
-rake spec:gateways
+rake spec:actors spec:models spec:controllers spec:features spec:gateways
 
 * Services (job queues, cache servers, search engines, etc.)
 
@@ -103,4 +100,12 @@ Stripe Key Check
 
 stripe-key meta-tag must define STRIPE_PUBLIC_KEY
 Stripe.setPublishableKey($('meta[name="stripe-key"]').attr('content'));
+
+
+http://about.me/bparanj
+http://rubyplus.com/about
+http://www.meetup.com/silicon-valley-ruby/
+https://github.com/bparanj
+https://bitbucket.org/bparanj
+
 

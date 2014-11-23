@@ -1,6 +1,6 @@
 class SalesController < ApplicationController
-  layout 'sales'
-  
+  layout 'stripe'
+    
   def new
     begin
       user = current_or_guest_user

@@ -21,15 +21,12 @@ describe User, :type => :model do
 
     expect(u.has_saved_credit_card?).to be(false)
   end
-  
-  it 'should save credit card expiration date' do
-    u = User.create(email: 'bogus@exmaple.com', password: '12345678')
-    u.create_credit_card(last4digits: '4321', expiration_month: 1, expiration_year: 2015)
-    u.update_credit_card_expiration_date('1234', 2, 2020)
     
-    user = User.last
-    expect(user.credit_card.last4digits).to eq('1234')
-    expect(user.credit_card.expiration_month).to eq(2)
-    expect(user.credit_card.expiration_year).to eq(2020)
+  it 'should delegate saving credit card detils to credit card class' do
+    user = User.new
+    
+    expect(user.credit_card).to receive(:save_credit_card_details)
+    
+    user.save_credit_card_details('1234', 1, 2020)
   end
 end
