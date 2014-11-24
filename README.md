@@ -1,6 +1,6 @@
 # README #
 
-* Articles with Step by Step Instructions
+==Articles with Step by Step Instructions
 
 - [Recurring Billing using Stripe API](http://rubyplus.com/articles/941 'Stripe')
 - [Stripe Recurring Billing Part 2](http://rubyplus.com/articles/961 'Stripe')
@@ -17,3 +17,8 @@
 - [One Click Checkout using Stripe](http://rubyplus.com/articles/1291 'One Click Checkout using Stripe')
 - [Using Stripe Webhook to Handle Subscription Payment Failures](http://rubyplus.com/articles/1301 'Using Stripe Webhook to Handle Subscription Payment Failures')
 - [Stripe Subscription and Charge Customer Test Improvements](http://rubyplus.com/articles/1311 'Stripe Subscription and Charge Customer Test Improvements')
+- [Stripe Recurring Billing : Update Credit Card Expiration](http://rubyplus.com/articles/1321 'Stripe Recurring Billing : Update Credit Card Expiration')
+- [Stripe Recurring Billing and Update Credit Card Expiration Cleanup](http://rubyplus.com/articles/1331 'Stripe Recurring Billing and Update Credit Card Expiration Cleanup')
+- [Stripe Subscription and Checkout : Test Coverage using SimpleCov](http://rubyplus.com/articles/1341 'Stripe Subscription and Checkout : Test Coverage using SimpleCov')
+- [Add New Credit Card using Stripe API](http://rubyplus.com/articles/1351 'Add New Credit Card using Stripe API')
+- [Stripe Webhook Testing in Development](http://rubyplus.com/articles/1361 'Stripe Webhook Testing in Development')

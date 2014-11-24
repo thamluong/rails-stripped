@@ -1,23 +1,6 @@
-1. If credit card is about to expire:
-	a) Display message reminder to update credit card details after login.
-	b) Send an email reminder to update credit card expiration date.
+1. Integrate TB 3
 
-> expiration_date = DateTime.new(2014, 12,1)
- => Mon, 01 Dec 2014 00:00:00 +0000 
-> today = DateTime.now
-	 => Sun, 23 Nov 2014 23:42:40 -0800 
-> checker = today + 30.days
-	 => Tue, 23 Dec 2014 23:42:40 -0800 
-> checker > expiration_date
-	 => true 
-> x = today + 2.days
-	 => Tue, 25 Nov 2014 23:42:40 -0800 
-> x > expiration_date
-	 => false 
-	
-2. Integrate TB 3
-
-3. Refactor this utility:
+2. Refactor this utility:
 
 # Stolen from http://www.railsonmaui.com/blog/2013/05/08/strategies-for-rails-logging-and-error-handling/
 class Utility
