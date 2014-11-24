@@ -1,10 +1,23 @@
-1. If credit card is about to expire, redirect user to update credit card page after login.
+1. If credit card is about to expire:
+	a) Display message reminder to update credit card details after login.
+	b) Send an email reminder to update credit card expiration date.
+
+> expiration_date = DateTime.new(2014, 12,1)
+ => Mon, 01 Dec 2014 00:00:00 +0000 
+> today = DateTime.now
+	 => Sun, 23 Nov 2014 23:42:40 -0800 
+> checker = today + 30.days
+	 => Tue, 23 Dec 2014 23:42:40 -0800 
+> checker > expiration_date
+	 => true 
+> x = today + 2.days
+	 => Tue, 25 Nov 2014 23:42:40 -0800 
+> x > expiration_date
+	 => false 
+	
 2. Integrate TB 3
 
-
-
-1. Send email few weeks before expiration. 
-2. Refactor this utility:
+3. Refactor this utility:
 
 # Stolen from http://www.railsonmaui.com/blog/2013/05/08/strategies-for-rails-logging-and-error-handling/
 class Utility
@@ -31,39 +44,4 @@ class Utility
   end
 end
 
-Change this to use deliver later using delayed job.
-
-3. Update the email of the customer in Stripe if the user registers after guest checkout. Why? There is no business value in doing it. Do it in the background?
-
-def update_stripe
-  if stripe_id.nil?
-    if !stripe_token.present?
-      raise "We're doing something wrong -- this isn't supposed to happen"
-    end
-
-    customer = Stripe::Customer.create(
-      :email => email,
-      :description => stripe_description,
-      :card => stripe_token
-    )
-    self.last_4_digits = customer.active_card.last4
-    response = customer.update_subscription({:plan => "premium"})
-  else
-    customer = Stripe::Customer.retrieve(stripe_id)
-
-    if stripe_token.present?
-      customer.card = stripe_token
-    end
-
-    # in case they've changed
-    customer.email = email
-    customer.description = stripe_description
-
-    customer.save
-
-    self.last_4_digits = customer.active_card.last4
-  end
-
-  self.stripe_id = customer.id
-  self.stripe_token = nil
-end
+Change this to use deliver_later using delayed job.

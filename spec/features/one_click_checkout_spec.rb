@@ -8,32 +8,20 @@ feature 'One click checkout' do
   
   scenario 'guest checkout, register and one-click checkout in subsequent visit', js: true do
     # 1. A customer makes a purchase as a guest. 
-    visit products_show_path
-    click_link 'Buy Now'
-    
-    fill_in "Card Number", with: '4242424242424242'    
-    page.select '10', from: "card_month"
-    page.select '2029', from: 'card_year'
-    click_button 'Submit Payment'
+    checkout_product
+    make_payment('4242424242424242')
     
     # 2. Registers for an account.  
-    click_link 'Create your free account now'
-    fill_in 'Email', with: 'test@example.com'
-    fill_in 'Password', with: '12345678'
-    click_button 'Sign up'
+    register_after_guest_checkout('test@example.com', '12345678')
     
     # 3. Logs out.
-    click_link 'Logout'
+    logout
     
     # 4. Logs in.
-    click_link 'Login'
-    fill_in 'Email', with: 'test@example.com'
-    fill_in 'Password', with: '12345678'
-    click_button 'Log in'
+    login('test@example.com', '12345678')
     
     # 5. Makes a purchase without providing any credit card details using one-click checkout.
-    visit products_show_path
-    click_link 'Buy Now'
+    checkout_product
     
     expect(page).to have_content('Download details about the book goes here')
   end

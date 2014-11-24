@@ -7,32 +7,18 @@ feature 'Guest Checkout' do
   end
   
   scenario 'Complete purchase of one product and register for an account', js: true do
-    visit products_show_path
-    click_link 'Buy Now'
-    
-    fill_in "Card Number", with: '4242424242424242'    
-    page.select '10', from: "card_month"
-    page.select '2029', from: 'card_year'
-    click_button 'Submit Payment'
-    
-    click_link 'Create your free account now'
-    fill_in 'Email', with: test_email
-    fill_in 'Password', with: '12345678'
-
-    click_button 'Sign up'
+    checkout_product
+    make_payment('4242424242424242')
+    register_after_guest_checkout(test_email, '12345678')
         
     expect(page).to have_content('Welcome! You have signed up successfully')
     expect(page).to have_content('Download details about the book goes here')
   end
 
   scenario 'Complete purchase of one product and do not register for an account', js: true do
-    visit products_show_path
-    click_link 'Buy Now'
+    checkout_product
     
-    fill_in "Card Number", with: '4242424242424242'    
-    page.select '10', from: "card_month"
-    page.select '2029', from: 'card_year'
-    click_button 'Submit Payment'
+    make_payment('4242424242424242')
     
     click_link 'No thanks, take me to my download'
         
@@ -40,49 +26,33 @@ feature 'Guest Checkout' do
   end
   
   scenario 'Fails due to credit card declined', js: true do
-    visit products_show_path
-    click_link 'Buy Now'
+    checkout_product
     
-    fill_in "Card Number", with: '4000000000000002'    
-    page.select '10', from: "card_month"
-    page.select '2029', from: 'card_year'
-    click_button 'Submit Payment'
+    make_payment('4000000000000002')
     
     expect(page).to have_content('Your card was declined.')
   end
 
   scenario 'Fails due to credit card expired', js: true do
-    visit products_show_path
-    click_link 'Buy Now'
+    checkout_product
     
-    fill_in "Card Number", with: '4000000000000069'    
-    page.select '10', from: "card_month"
-    page.select '2029', from: 'card_year'
-    click_button 'Submit Payment'
-    
+    make_payment('4000000000000069')
+        
     expect(page).to have_content('Your card has expired.')
   end
 
   scenario 'Fails due to incorrect credit card number', js: true do
-    visit products_show_path
-    click_link 'Buy Now'
-    
-    fill_in "Card Number", with: '4242424242424241'    
-    page.select '10', from: "card_month"
-    page.select '2029', from: 'card_year'
-    click_button 'Submit Payment'
+    checkout_product
+        
+    make_payment('4242424242424241')
       
     expect(page).to have_content('Your card number is incorrect.')    
   end
 
   scenario 'Fails due to credit card processing error', js: true do
-    visit products_show_path
-    click_link 'Buy Now'
-    
-    fill_in "Card Number", with: '4000000000000119'    
-    page.select '10', from: "card_month"
-    page.select '2029', from: 'card_year'
-    click_button 'Submit Payment'
+    checkout_product
+        
+    make_payment('4000000000000119')
     
     expect(page).to have_content('An error occurred while processing your card. Try again in a little bit.')
   end

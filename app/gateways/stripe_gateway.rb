@@ -4,7 +4,6 @@ class StripeGateway
     run_with_stripe_exception_handler('Add a new credit card failed due to') do
       customer = Stripe::Customer.retrieve(stripe_customer_id)
       card = customer.cards.create(card: stripe_token)
-      card.save
       customer.default_card = card.id
       customer.save
       card

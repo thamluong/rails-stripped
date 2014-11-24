@@ -17,6 +17,43 @@ module Features
       click_button 'Subscribe Me'
     end
     
+    def make_payment(credit_card)
+      fill_in "Card Number", with: credit_card
+      page.select '10', from: "card_month"
+      page.select '2029', from: 'card_year'
+      click_button 'Submit Payment'
+    end
+    
+    def checkout_product
+      visit products_show_path
+      click_link 'Buy Now'
+    end
+    
+    def register_after_guest_checkout(email, password)
+      click_link 'Create your free account now'
+      fill_in 'Email', with: email
+      fill_in 'Password', with: password
+      click_button 'Sign up'
+    end
+    
+    def logout
+      click_link 'Logout'
+    end
+    
+    def login(email, password)
+      click_link 'Login'
+      fill_in 'Email', with: email
+      fill_in 'Password', with: password
+      click_button 'Log in'
+    end
+    
+    def change_credit_card_expiration_date
+      visit credit_cards_edit_path    
+      page.select '10', from: "card_month"
+      page.select '2028', from: 'card_year'
+      click_button 'Change Expiration Date'
+    end
+    
     def test_email
       "guest_#{Time.now.to_i}#{rand(100)}@example.com"
     end
