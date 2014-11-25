@@ -3,7 +3,6 @@ class CreditCardsController < ApplicationController
   before_action :authenticate_user!
   
   def new
-    
   end
   
   def create
@@ -17,7 +16,7 @@ class CreditCardsController < ApplicationController
   
   def edit
     # TODO : Only users who have already subscribed or purchased a product will have a credit card.
-    # Do not display credit card edit form if they don't have a credit card
+    # Do not display credit card edit form if they don't have a credit card. Will they come to this page if they don't have cc?
     @credit_card = CreditCard.where(user_id: current_user.id).first    
   end
 

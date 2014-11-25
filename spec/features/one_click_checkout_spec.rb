@@ -23,6 +23,7 @@ feature 'One click checkout' do
     # 5. Makes a purchase without providing any credit card details using one-click checkout.
     checkout_product
     
+    expect(page).to have_content('Your credit card ending in 4242 has been charged for this purchase')
     expect(page).to have_content('Download details about the book goes here')
   end
     

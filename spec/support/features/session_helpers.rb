@@ -17,6 +17,13 @@ module Features
       click_button 'Subscribe Me'
     end
     
+    def add_new_credit_card(credit_card)
+      fill_in "Card Number", with: credit_card    
+      page.select '10', from: "card_month"
+      page.select '2028', from: 'card_year'
+      click_button 'Add Credit Card'
+    end
+    
     def make_payment(credit_card)
       fill_in "Card Number", with: credit_card
       page.select '10', from: "card_month"
