@@ -20,7 +20,6 @@ class SubscriptionsController < ApplicationController
   end
   
   def pricing
-
   end
   
 end

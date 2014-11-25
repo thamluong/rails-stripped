@@ -64,7 +64,10 @@ rake spec:actors spec:models spec:controllers spec:gateways spec:features
 
 None
 
-* Deployment instructions
+* Deployment
+
+1. Run rake secret.
+2. Set ENV["SECRET_KEY_BASE"] variable to the generated secret.
 
 None
 

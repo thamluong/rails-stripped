@@ -1,7 +1,7 @@
 Assumptions
 -----------
 
-1. User authentication is out of scope. The user email is hard-coded to 'current_user.email' for now. It is a good practice to provide user few weeks of free trial after signup to show how the SaaS application is useful. After the free trial ends, the user will be prompted for the credit card details to complete the subscription. Since the user is already logged in, we already know their email address. So, we don't need a form field for the email.
+1. It is a good practice to provide user few weeks of free trial after signup to show how the SaaS application is useful. After the free trial ends, the user will be prompted for the credit card details to complete the subscription. Since the user is already logged in, we already know their email address. So, we don't need a form field for the email.
 
 2. Plans are created once. You can create it manually using the Stripe dashboard. You can also create it using the Stripe API. For details read the : Recurring Billing using Stripe API article. http://rubyplus.com/articles/941
 
@@ -21,8 +21,6 @@ Alternate Scenarios
 2. Invalid expiration month
 3. Invalid expiration year
 4. Submit the default form without entering any value for the form elements.
-
-
 
 Test Secret Key : sk_test_6DDlSYysrSDSm8hj6nhtciqp
 Test Publishable Key : pk_test_YpSRnGy9qcYyI6VJfPk62t93
