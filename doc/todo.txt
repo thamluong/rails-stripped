@@ -1,5 +1,9 @@
 
 1. Integrate TB 3
+	1. Style flash
+	2. Style text fields, label
+	3. Show how to use themes. Use Bootswatch.
+
 
 2. Refactor this utility:
 

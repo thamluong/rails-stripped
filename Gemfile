@@ -3,7 +3,9 @@ source 'https://rubygems.org'
 
 gem 'rails', '4.2.0.beta4'
 gem 'mysql2'
+gem 'bootstrap-sass', '~> 3.3.1'
 gem 'sass-rails', github: 'rails/sass-rails'
+gem 'autoprefixer-rails'
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 gem 'libv8', '3.11.8.13'
