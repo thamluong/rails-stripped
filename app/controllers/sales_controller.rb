@@ -19,7 +19,7 @@ class SalesController < ApplicationController
     end
   end
 
-  def create
+  def create    
     begin
       user = current_or_guest_user
       Actors::Customer::UseCases.guest_checkout(session[:product_id], params[:stripeToken], user)

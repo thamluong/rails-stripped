@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   get 'subscriptions/new' => 'subscriptions#new', as: :new_subscription
   post 'subscriptions/create' => 'subscriptions#create'
   
-  get 'pricing' => 'subscriptions#pricing'
+  get 'pricing' => 'welcome#pricing'
     
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

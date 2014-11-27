@@ -18,8 +18,5 @@ class SubscriptionsController < ApplicationController
       redisplay_form("Subscription failed. We have been notified about this problem.")
     end
   end
-  
-  def pricing
-  end
-  
+    
 end

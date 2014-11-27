@@ -8,7 +8,7 @@ feature 'Credit Card Update' do
     sign_up(test_email, '12345678')
     
     # subscribe
-    visit pricing_path    
+    click_link 'Pricing'   
     subscribe_to_a_plan('Gold', '4242424242424242')
     
     # Need to wait for response from Stripe servers before we can continue.

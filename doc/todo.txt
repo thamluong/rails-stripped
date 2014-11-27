@@ -1,11 +1,11 @@
 
-1. Integrate TB 3
-	1. Style flash
-	2. Style text fields, label
-	3. Show how to use themes. Use Bootswatch.
+1. Style flash
+2. Test nav_link helper
+3. Center the form in sales/new.html.erb
 
 
-2. Refactor this utility:
+
+Refactor this utility:
 
 # Stolen from http://www.railsonmaui.com/blog/2013/05/08/strategies-for-rails-logging-and-error-handling/
 class Utility

@@ -5,7 +5,7 @@ class CreditCardsController < ApplicationController
   def new
   end
   
-  def create
+  def create    
     begin
       @card = Actors::Customer::UseCases.add_new_credit_card(current_user, params[:stripeToken])
     rescue Exception => e

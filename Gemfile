@@ -7,6 +7,8 @@ gem 'bootstrap-sass', '~> 3.3.1'
 gem 'sass-rails', github: 'rails/sass-rails'
 gem 'autoprefixer-rails'
 gem 'uglifier', '>= 1.3.0'
+gem 'bootswatch-rails'
+
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 gem 'libv8', '3.11.8.13'
 gem 'therubyracer',  platforms: :ruby
@@ -16,8 +18,6 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0',          group: :doc
-
-gem 'spring',        group: :development
 
 gem 'stripe'
 gem 'devise'

@@ -5,7 +5,7 @@ module Features
       fill_in 'Email', with: email
       fill_in 'Password', with: password
       
-      click_button 'Sign up'
+      click_button 'Sign Up'
     end
     
     def subscribe_to_a_plan(plan, credit_card)
@@ -40,7 +40,7 @@ module Features
       click_link 'Create your free account now'
       fill_in 'Email', with: email
       fill_in 'Password', with: password
-      click_button 'Sign up'
+      click_button 'Sign Up'
     end
     
     def logout

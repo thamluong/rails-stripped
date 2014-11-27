@@ -25,6 +25,7 @@ feature 'Add New Credit Card' do
      
      # 5. Add new credit card
      visit credit_cards_new_path
+
      add_new_credit_card('4012888888881881')
      
      expect(page).to have_content('Your credit card ending in last 4 digits 1881 has been added.')

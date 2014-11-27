@@ -1,5 +1,9 @@
-<% if @credit_card %>
-Your credit card ending in <%= @credit_card.last4digits %> has been charged for this purchase.
-<% end %>
+<fieldset>
+	<legend>Confirmation</legend>
+	
+	<% if @credit_card %>
+	Your credit card ending in <%= @credit_card.last4digits %> has been charged for this purchase.
+	<% end %>
 
-Download details about the book goes here. 
+	Download details about the book goes here.
+</fieldset>
