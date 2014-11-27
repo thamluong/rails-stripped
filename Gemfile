@@ -10,8 +10,8 @@ gem 'uglifier', '>= 1.3.0'
 gem 'bootswatch-rails'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-gem 'libv8', '3.11.8.13'
-gem 'therubyracer',  platforms: :ruby
+gem 'libv8', '3.16.14.7'
+gem 'therubyracer', '~> 0.12.0'
 
 gem 'jquery-rails'
 gem 'turbolinks'

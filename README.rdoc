@@ -54,6 +54,8 @@ rake db:migrate
 
 * Database initialization
 
+rake db:seed
+
 * How to run the test suite
 
 You must have plans created in your Stripe account. Create one plan that has id of 'gold'.
