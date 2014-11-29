@@ -1,16 +1,27 @@
 class RegistrationsController < Devise::RegistrationsController
   
-  def create    
-    super    
-    StripeCustomer.transfer_guest_user_values_to_registered_user(guest_user, current_user)
-  end  
+  def new
+    super
+  end
   
-  def after_sign_up_path_for(resource)
-    if session[:guest_user_id].blank?
-      after_sign_in_path_for(resource)
+  def create
+    user = current_or_guest_user
+    Actors::Customer::UseCases.register_for_an_account(user, params[:user][:email], params[:user][:password])
+    sign_in(user)
+    
+    flash.notice = 'You have signed up'
+      
+    if new_registration_without_purchase?
+      root_path
     else
       download_path
     end
+  end  
+  
+  private
+  
+  def new_registration_without_purchase?
+    session[:guest_checkout].blank?
   end
   
 end

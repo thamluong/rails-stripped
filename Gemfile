@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-
 gem 'rails', '4.2.0.beta4'
 gem 'mysql2'
 gem 'bootstrap-sass', '~> 3.3.1'
@@ -10,8 +9,9 @@ gem 'uglifier', '>= 1.3.0'
 gem 'bootswatch-rails'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-gem 'libv8', '3.16.14.7'
-gem 'therubyracer', '~> 0.12.0'
+# Following gem installation is a hassle on Mac. Install Nodejs instead.
+# gem 'libv8', '3.16.14.7'
+# gem 'therubyracer', '~> 0.12.0'
 
 gem 'jquery-rails'
 gem 'turbolinks'

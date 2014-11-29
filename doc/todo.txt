@@ -1,11 +1,42 @@
 
+
+
+Rails.logger.info "*" * 80
+Rails.logger.info customer.cards.data[0].name
+    
+Rails.logger.info  "*" * 80
+puts  "*" * 80
+puts customer.cards.data[0].name
+puts  "*" * 80
+
+Rails.logger.info "*" * 80
+Rails.logger.info params.inspect
+Rails.logger.info "*" * 80
+
+
+In registrations_controller do not initialize the @email if the current_user is guest to prevent filling the email field with guest-random-number@example.com.
+
+
 1. Style flash
 2. Test nav_link helper
-3. Center the form in sales/new.html.erb
+3. CSS changes to align the credit card forms. The change should not break the integration tests.
 
+#	modified:   app/models/stripe_customer.rb                   CLEANUP
+#	modified:   app/views/devise/registrations/new.html.erb     CLEAR OUT GUEST USER EMAIL
+#	modified:   app/views/sales/new.html.erb					CSS MAGIC REQUIRED
 
+4. On the page that displays : View and download your purchased products. If a customer has just purchased, provide the download details.
 
-Refactor this utility:
+A customer has many payments. Create a Payment model to store:
+
+- user_id
+- product_id
+- amount
+- receipt_number
+
+when one_click_checkout and guest_checkout is complete (a customer makes a payment).
+
+5. Refactor this utility:
 
 # Stolen from http://www.railsonmaui.com/blog/2013/05/08/strategies-for-rails-logging-and-error-handling/
 class Utility

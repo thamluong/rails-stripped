@@ -34,6 +34,7 @@ require_relative '../app/actors/customer/use_cases/guest_checkout'
 require_relative '../app/actors/customer/use_cases/one_click_checkout'
 require_relative '../app/actors/customer/use_cases/update_credit_card_expiration_date'
 require_relative '../app/actors/customer/use_cases/add_new_credit_card'
+require_relative '../app/actors/customer/use_cases/register_for_an_account'
 
 # Stripe System actor
 require_relative '../app/actors/stripe/use_cases/process_subscription_payment_failure'

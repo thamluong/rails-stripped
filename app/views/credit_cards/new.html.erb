@@ -1,34 +1,31 @@
+<form action="create" method="POST" id="payment-form">
+  <span class="payment-errors">
+  	<noscript>JavaScript is not enabled and is required for this form. First enable it in your web browser settings.</noscript>
+  </span>
+  <% if @error_message %>
+	<%= @error_message %>
+  <% end %>
 
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
 
-	<form action="create" method="POST" id="payment-form">
-	  <span class="payment-errors">
-	  	<noscript>JavaScript is not enabled and is required for this form. First enable it in your web browser settings.</noscript>
-		</div>
-	  </span>
-	  <% if @error_message %>
-		<%= @error_message %>
-	  <% end %>
+  <div class="form-row">
+    <label>
+      <span>Card Number</span>
+      <input type="text" size="20" data-stripe="number"/>
+    </label>
+  </div>
 
-	  <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
+  <div class="form-row">
+    <label>
+      <span>Expiration</span>
+<%= select_month nil, {add_month_numbers: true}, {name: nil, id: "card_month", data: {stripe: "exp-month"}} %>
 
-	  <div class="form-row">
-	    <label>
-	      <span>Card Number</span>
-	      <input type="text" size="20" data-stripe="number"/>
-	    </label>
-	  </div>
+    </label>
+    <span>/</span>
+	<%= select_year nil, {start_year: Date.today.year, end_year: Date.today.year+15}, {name: nil, id: "card_year", data: {stripe: "exp-year"}} %>
 
-	  <div class="form-row">
-	    <label>
-	      <span>Expiration</span>
-	<%= select_month nil, {add_month_numbers: true}, {name: nil, id: "card_month", data: {stripe: "exp-month"}} %>
+  </div>
 
-	    </label>
-	    <span>/</span>
-		<%= select_year nil, {start_year: Date.today.year, end_year: Date.today.year+15}, {name: nil, id: "card_year", data: {stripe: "exp-year"}} %>
-
-	  </div>
-
-	  <button type="submit" class='btn btn-primary'>Add Credit Card</button>
-	</form>	
+  <button type="submit" class='btn btn-primary'>Add Credit Card</button>
+</form>	
 

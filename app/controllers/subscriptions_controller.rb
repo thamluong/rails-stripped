@@ -1,6 +1,6 @@
 class SubscriptionsController < ApplicationController
-  layout 'stripe'
-    
+  layout 'stripe'  
+  
   def new    
     @plan_name = params[:plan_name]      
   end
