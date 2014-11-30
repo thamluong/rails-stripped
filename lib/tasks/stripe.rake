@@ -18,7 +18,9 @@ ERROR
         Stripe::Account.retrieve
         puts "Stripe Secret Key is defined properly"
       rescue  Stripe::AuthenticationError => e
-        puts "Stripe Secret Key is not correct"
+        puts "Stripe Secret Key is not correct."
+        puts message
+        puts "Did you forget to source ~/.bash_profile ?"
       end
     end
   end

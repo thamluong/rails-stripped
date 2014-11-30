@@ -15,27 +15,21 @@ class StripeGateway
       Stripe::Customer.create(description: email, card: stripe_token, plan: plan_id)
     end    
   end
-  # amount in cents
-  def self.save_credit_card_and_charge(amount, stripe_token)
-    run_with_stripe_exception_handler('StripeGateway.save_credit_card_and_charge failed due to') do
-      # Create a Customer (save credit card)
+
+  def self.save_credit_card(stripe_token)
+    run_with_stripe_exception_handler('StripeGateway.save_credit_card failed due to') do
       customer = Stripe::Customer.create(card: stripe_token, description: "guest-user@example.com")
-      # Charge the Customer instead of the card. We discard the response, since no exception means success.
-      Stripe::Charge.create(amount:   amount, 
-                            currency: "usd",
-                            customer: customer.id)
-      customer
     end    
   end
   
+  # amount in cents  
   def self.charge(amount, customer_id)
     run_with_stripe_exception_handler('Could not charge customer due to') do
       Stripe::Charge.create(amount: amount, currency: "usd", customer: customer_id)
     end
   end
-  
-  
-  def self.save_credit_card_details(stripe_customer_id, card_month, card_year)
+
+  def self.update_credit_card_expiration_date(stripe_customer_id, card_month, card_year)
     run_with_stripe_exception_handler("Failed to update credit card expiration date") do
       customer = Stripe::Customer.retrieve(stripe_customer_id)
       card = customer.cards.first

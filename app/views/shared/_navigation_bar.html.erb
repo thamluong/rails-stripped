@@ -19,7 +19,7 @@
 		
 		<% if user_signed_in? %>
 		  <%= nav_link 'Logout', destroy_user_session_path, :delete %>
-		  <%= nav_link 'Edit Registration', edit_user_registration_path %>		  
+		  <%= nav_link 'My Account', edit_user_registration_path %>		  
 		<% else %>
 		  <%= nav_link 'Login', new_user_session_path %>
   		  <%= nav_link 'Register', new_user_registration_path %>

@@ -12,9 +12,9 @@ class RegistrationsController < Devise::RegistrationsController
     flash.notice = 'You have signed up'
       
     if new_registration_without_purchase?
-      root_path
+      redirect_to root_path
     else
-      download_path
+      redirect_to download_path
     end
   end  
   

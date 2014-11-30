@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141119004522) do
+ActiveRecord::Schema.define(version: 20141129053506) do
 
   create_table "credit_cards", force: true do |t|
     t.integer  "user_id",          limit: 4
@@ -20,6 +20,15 @@ ActiveRecord::Schema.define(version: 20141119004522) do
     t.integer  "expiration_year",  limit: 4
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
+  end
+
+  create_table "payments", force: true do |t|
+    t.integer  "user_id",        limit: 4
+    t.integer  "product_id",     limit: 4
+    t.string   "receipt_number", limit: 255
+    t.decimal  "amount",                     precision: 5, scale: 2
+    t.datetime "created_at",                                         null: false
+    t.datetime "updated_at",                                         null: false
   end
 
   create_table "products", force: true do |t|

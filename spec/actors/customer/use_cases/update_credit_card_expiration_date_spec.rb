@@ -10,8 +10,8 @@ describe 'Update credit card expiration date' do
     user = User.new(stripe_customer_id: 1)
     user.save(validate: false)
 
-    allow(user).to receive(:save_credit_card_details) { true }
-    expect(StripeGateway).to receive(:save_credit_card_details) { cc }
+    allow(user).to receive(:update_credit_card_expiration_date) { true }
+    expect(StripeGateway).to receive(:update_credit_card_expiration_date) { cc }
     
     Actors::Customer::UseCases.update_credit_card_expiration_date(user, 12, 2020)
   end
@@ -25,8 +25,8 @@ describe 'Update credit card expiration date' do
     user = User.new(stripe_customer_id: 1)
     user.save(validate: false)
 
-    expect(user).to receive(:save_credit_card_details)
-    allow(StripeGateway).to receive(:save_credit_card_details) { cc }
+    expect(user).to receive(:update_credit_card_expiration_date)
+    allow(StripeGateway).to receive(:update_credit_card_expiration_date) { cc }
     
     Actors::Customer::UseCases.update_credit_card_expiration_date(user, 12, 2020)
   end

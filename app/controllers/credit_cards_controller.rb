@@ -14,10 +14,9 @@ class CreditCardsController < ApplicationController
     end
   end
   
+  # This is used only for changing the expiration date when a customer clicks the link in the email.
   def edit
-    # TODO : Only users who have already subscribed or purchased a product will have a credit card.
-    # Do not display credit card edit form if they don't have a credit card. Will they come to this page if they don't have cc?
-    @credit_card = CreditCard.where(user_id: current_user.id).first    
+    @credit_card = current_user.credit_card
   end
 
   def update

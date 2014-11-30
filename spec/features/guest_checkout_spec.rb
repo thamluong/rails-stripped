@@ -11,7 +11,7 @@ feature 'Guest Checkout' do
     make_payment('4242424242424242')
     register_after_guest_checkout(test_email, '12345678')
         
-    expect(page).to have_content('You have signed up!')
+    expect(page).to have_content('You have signed up')
   end
 
   scenario 'Complete purchase of one product and do not register for an account', js: true do

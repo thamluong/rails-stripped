@@ -62,6 +62,8 @@ You must have plans created in your Stripe account. Create one plan that has id 
 
 rake spec:actors spec:models spec:controllers spec:gateways spec:features 
 
+You must be connected to the Internet to run the integration tests (feature specs and some use case specs). 
+
 * Services (job queues, cache servers, search engines, etc.)
 
 None

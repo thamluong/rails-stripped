@@ -1,5 +1,6 @@
 module Features
   module SessionHelpers
+    # :nocov:
     def sign_up(email, password)
       visit new_user_registration_path
       fill_in 'Email', with: email

@@ -2,7 +2,7 @@ class StripeCustomer
   
   # Use Case : Add New Credit Card
   def self.save_credit_card_details(card, user)
-    user.save_credit_card_details(card.last4, card.exp_month, card.exp_year)
+    user.create_credit_card(last4digits: card.last4, expiration_month: card.exp_month, expiration_year: card.exp_year)
   end
   
   # Use Case : Subscribe to a plan
@@ -12,17 +12,20 @@ class StripeCustomer
   end
   
   # Use Case : Guest Checkout
-  # Save the stripe response values in our database
+  # Saves the stripe response values in our database
   def self.save_credit_card_and_stripe_customer_id(customer, user)
-    last4digits = customer.cards.data[0].last4
-    expiration_month = customer.cards.data[0].exp_month
-    expiration_year = customer.cards.data[0].exp_year
-    user.email = "guest_#{Time.now.to_i}#{rand(100)}@example.com"
+    mapper = StripeCustomerMapper.new(customer)
+    user.email = User.generate_random_guest_email
         
     user.save_stripe_customer_id(customer.id)
-    user.create_credit_card(last4digits: last4digits, 
-                            expiration_month: expiration_month, 
-                            expiration_year: expiration_year)
+    user.create_credit_card(last4digits:      mapper.credit_card_last4digits, 
+                            expiration_month: mapper.credit_card_expiration_month, 
+                            expiration_year:  mapper.credit_card_expiration_year)
+  end
+  
+  def self.create_payment(product_id, user_id, charge_id)
+    product = Product.find(product_id)
+    Payment.create(product_id: product_id, user_id: user_id, amount: product.price, receipt_number: charge_id)
   end
     
 end

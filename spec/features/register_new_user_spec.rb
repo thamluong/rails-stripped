@@ -10,6 +10,6 @@ feature 'Register' do
     fill_in 'Password', with: '12345678'
     click_button 'Sign Up' 
     
-    expect(page).to have_content('You have signed up!')
+    expect(page).to have_content('You have signed up')
   end
 end
