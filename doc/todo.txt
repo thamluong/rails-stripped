@@ -1,7 +1,3 @@
-DONE 
-
-On the page that displays If a customer has just purchased, show the receipt number.
-
 
 DELEGATE
 
@@ -9,16 +5,7 @@ DELEGATE
 2. app/views/sales/new.html.erb					CSS MAGIC REQUIRED
 
 
-
-Rails.logger.info "*" * 80   
-Rails.logger.info  "*" * 80
-puts  "*" * 80
-puts  "*" * 80
-
-Rails.logger.info "*" * 80
-Rails.logger.info params.inspect
-Rails.logger.info "*" * 80
-
+TODO
 
 1. Style flash
 2. Refactor this utility:
@@ -50,32 +37,7 @@ end
 
 Change this to use deliver_later using delayed job.
 
-3. Experiment to check the following issue:
-
-The create action in app/controllers/sales_controller.rb now initializes the session[:guest_checkout] to 1 to mark the guest checkout flow.
-
-```ruby
-def create    
-   begin
-     user = current_or_guest_user
-     session[:guest_checkout] = 1
-     Actors::Customer::UseCases.guest_checkout(session[:product_id], params[:stripeToken], user)
-   rescue Striped::CreditCardDeclined => e
-     redisplay_form(e.message)
-   rescue Exception => e
-     StripeLogger.error "Guest checkout failed due to #{e.message}. #{e.backtrace.join("\n")}"
-     redisplay_form("Checkout failed. We have been notified about this problem.")
-   ensure
-     session[:product_id] = nil
-     session[:guest_checkout] = nil
-     WILL THIS RUN IF THERE IS NO EXCEPTION INSIDE THE BEGIN BLOCK? WE DON'T WANT TO CLEAR THIS BEFORE THE CUSTOMER EITHER CLICKS 'CREATE A NEW ACCOUNT NOW' OR 'NO THANKS, TAKE ME TO MY DOWNLOAD' LINK.
-   end
- end
-```
-
-For the flow that is part of guest_checkout we set the session variable flag to 1. This is used in registrations controller to redirect the customer to the appropriate page based on whether they signed up at the end of guest checkout process. So the create action in registrations controller can handle a new user registration who has not bought anything yet. It can also handle someone who purchases a product as a guest and signs up for an account at the end of the purchase flow.
-
-4. In user.rb.
+3. In user.rb.
 
 def save_stripe_customer_id(sci)
   self.stripe_customer_id = sci
@@ -83,3 +45,15 @@ def save_stripe_customer_id(sci)
 end
 
 WHAT IS THE REASON FOR BYPASSING THE VALIDATION HERE?
+
+
+
+
+Rails.logger.info "*" * 80   
+Rails.logger.info  "*" * 80
+puts  "*" * 80
+puts  "*" * 80
+
+Rails.logger.info "*" * 80
+Rails.logger.info params.inspect
+Rails.logger.info "*" * 80

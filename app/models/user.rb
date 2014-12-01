@@ -24,5 +24,8 @@ class User < ActiveRecord::Base
   def update_credit_card_expiration_date(expiration_month, expiration_year)
     self.credit_card.update_credit_card_expiration_date(expiration_month, expiration_year)
   end
-  
+
+  def orders
+    Order.all(payments)
+  end
 end

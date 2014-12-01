@@ -11,17 +11,7 @@ class RegistrationsController < Devise::RegistrationsController
     
     flash.notice = 'You have signed up'
       
-    if new_registration_without_purchase?
-      redirect_to root_path
-    else
-      redirect_to download_path
-    end
+    redirect_to root_path
   end  
-  
-  private
-  
-  def new_registration_without_purchase?
-    session[:guest_checkout].blank?
-  end
-  
+    
 end

@@ -25,7 +25,6 @@ feature 'Add New Credit Card' do
      
      # 5. Add new credit card
      visit credit_cards_new_path
-     sleep 5
      
      add_new_credit_card('4012888888881881')
      

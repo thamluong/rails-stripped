@@ -10,6 +10,7 @@ module Features
     end
     
     def subscribe_to_a_plan(plan, credit_card)
+      sleep 5
       click_link plan
       fill_in "Card Number", with: credit_card
       page.select '10', from: "card_month"
@@ -19,6 +20,7 @@ module Features
     end
     
     def add_new_credit_card(credit_card)
+      sleep 5
       fill_in "Card Number", with: credit_card    
       page.select '10', from: "card_month"
       page.select '2028', from: 'card_year'
@@ -26,6 +28,7 @@ module Features
     end
     
     def make_payment(credit_card)
+      sleep 2
       fill_in "Card Number", with: credit_card
       page.select '10', from: "card_month"
       page.select '2029', from: 'card_year'

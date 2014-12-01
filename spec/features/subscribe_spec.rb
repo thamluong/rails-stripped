@@ -6,7 +6,7 @@ feature 'Subscription' do
   scenario 'Customer subscribes to Gold plan', js: true do
     sign_up(test_email, '12345678') 
     visit pricing_path
-    
+
     subscribe_to_a_plan('Gold', '4242424242424242')
     
     expect(page).to have_content('You have been subscribed to Gold.')

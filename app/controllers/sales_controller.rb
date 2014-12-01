@@ -22,7 +22,6 @@ class SalesController < ApplicationController
   def create    
     begin
       user = current_or_guest_user
-      session[:guest_checkout] = 1
       @payment = Actors::Customer::UseCases.guest_checkout(session[:product_id], params[:stripeToken], user)
       @product = Product.find(session[:product_id])
     rescue Striped::CreditCardDeclined => e
@@ -32,7 +31,6 @@ class SalesController < ApplicationController
       redisplay_form("Checkout failed. We have been notified about this problem.")
     ensure
       session[:product_id] = nil
-      session[:guest_checkout] = nil
     end
   end
   

@@ -1,2 +1,9 @@
-
-This is the home page.
+<% if @orders %>
+	Your Purchases <br/>
+	<% @orders.each do |order|  %>
+		<%= order[:product_name] %> : <%= order[:amount] %>
+	<% end %>
+	
+<% else  %>
+	This is the home page.
+<% end  %>
