@@ -30,6 +30,7 @@ module Features
       page.select '10', from: "card_month"
       page.select '2029', from: 'card_year'
       click_button 'Submit Payment'
+      sleep 5 
     end
     
     def checkout_product

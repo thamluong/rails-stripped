@@ -5,9 +5,9 @@ class SalesController < ApplicationController
     begin
       user = current_or_guest_user
       if user.has_saved_credit_card?
-        Actors::Customer::UseCases.one_click_checkout(user, params[:id])
-                
-        redirect_to download_path
+        @payment = Actors::Customer::UseCases.one_click_checkout(user, params[:id])
+        
+        redirect_to download_path(payment_id: @payment, product_id: params[:id])
       else
         session[:product_id] = params[:id]
       end
@@ -23,7 +23,8 @@ class SalesController < ApplicationController
     begin
       user = current_or_guest_user
       session[:guest_checkout] = 1
-      Actors::Customer::UseCases.guest_checkout(session[:product_id], params[:stripeToken], user)
+      @payment = Actors::Customer::UseCases.guest_checkout(session[:product_id], params[:stripeToken], user)
+      @product = Product.find(session[:product_id])
     rescue Striped::CreditCardDeclined => e
       redisplay_form(e.message)
     rescue Exception => e

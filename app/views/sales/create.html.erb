@@ -1,7 +1,9 @@
 <div class='container'>
   <fieldset>
 	<legend>Receipt</legend>
-	<p>You just bought 'Rails 4 Quickly book' for $27. If you signup for an account, you can :
+	<p>You just bought <%= @product.name %> for <%= number_to_currency(@product.price) %>. Receipt number : <%= @payment.receipt_number %>
+		 
+	<p>	If you signup for an account, you can : </p>
 
 	<ol>
 		<li>View all your purchases.</li>
@@ -12,7 +14,8 @@
 	<hr>
 	<p><%= link_to 'Create your free account now', new_user_registration_path %>. </p>
 
-	<%= link_to 'No thanks, take me to my download', download_path %>.
+	<%= link_to 'No thanks, take me to my download', download_path(product_id: @product, payment_id: @payment) %>.
+	
   </fieldset>	
 </div>
 

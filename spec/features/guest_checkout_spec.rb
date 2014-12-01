@@ -5,7 +5,7 @@ feature 'Guest Checkout' do
   before(:each) do
     Product.create(name: 'Rails 4 Quickly', price: 47)  
   end
-  
+ 
   scenario 'Complete purchase of one product and register for an account', js: true do
     checkout_product
     make_payment('4242424242424242')
@@ -20,7 +20,6 @@ feature 'Guest Checkout' do
     make_payment('4242424242424242')
     
     click_link 'No thanks, take me to my download'
-        
     expect(page).to have_content('Download details about the book goes here')
   end
   
@@ -55,5 +54,5 @@ feature 'Guest Checkout' do
     
     expect(page).to have_content('An error occurred while processing your card. Try again in a little bit.')
   end
-  
+
 end

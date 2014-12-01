@@ -1,8 +1,12 @@
 <fieldset>
 	<legend>Confirmation</legend>
 	
+	Receipt Number : <%= @payment.receipt_number %>
+	
+	<p>You just bought <%= @product.name %> for <%= number_to_currency(@product.price) %>. 
+			
 	<% if @credit_card %>
-	Your credit card ending in <%= @credit_card.last4digits %> has been charged for this purchase.
+		Your credit card ending in <%= @credit_card.last4digits %> has been charged for this purchase.
 	<% end %>
 
 	Download details about the book goes here.
