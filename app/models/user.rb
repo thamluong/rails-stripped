@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
   
   def save_stripe_customer_id(sci)
     self.stripe_customer_id = sci
-    save(validate: false)                
+    save
   end
   
   def has_saved_credit_card?

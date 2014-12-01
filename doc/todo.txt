@@ -1,3 +1,13 @@
+DONE
+
+In user.rb.
+
+def save_stripe_customer_id(sci)
+  self.stripe_customer_id = sci
+  save(validate: false)                
+end
+
+Bypassing validation is not needed because the application controller creates a guest user, it bypasses the validation.
 
 DELEGATE
 
@@ -36,17 +46,6 @@ class Utility
 end
 
 Change this to use deliver_later using delayed job.
-
-3. In user.rb.
-
-def save_stripe_customer_id(sci)
-  self.stripe_customer_id = sci
-  save(validate: false)                
-end
-
-WHAT IS THE REASON FOR BYPASSING THE VALIDATION HERE?
-
-
 
 
 Rails.logger.info "*" * 80   

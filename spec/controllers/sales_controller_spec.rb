@@ -25,7 +25,7 @@ describe SalesController, :type => :controller do
     expect(subject).to redirect_to(download_path(product_id: @product, payment_id: @payment))
   end
   
-  it 'should render the new page when exception occurs in new action' do    
+  it 'should render the new page when credit card is declined in new action' do    
     user = User.new
     user.save(validate: false)
     sign_in(user)
@@ -55,7 +55,7 @@ describe SalesController, :type => :controller do
     post :create, { stripeToken: '1', plan_name: 'gold'}
   end
 
-  it 'should render the new page when exception occurs in create action' do
+  it 'should render the new page when credit card is declined in create action' do
     allow(Actors::Customer::UseCases).to receive(:guest_checkout) { raise Striped::CreditCardDeclined.new }
     
     post :create

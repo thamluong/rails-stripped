@@ -47,10 +47,10 @@ describe 'Guest Checkout' do
                                     :exp_month => 11,
                                     :exp_year => 2025,
                                     :cvc => "314"})
-    user = User.new(email: 'bogus@exmaple.com', password: '12345678')
-    user.save
-    
-    Actors::Customer::UseCases.guest_checkout(product.id, token.id, user)
+    guest = User.create(email: 'bogus@exmaple.com')
+    guest.save!(:validate => false)
+        
+    Actors::Customer::UseCases.guest_checkout(product.id, token.id, guest)
 
     user = User.last
     expect(user.stripe_customer_id).not_to be_nil
