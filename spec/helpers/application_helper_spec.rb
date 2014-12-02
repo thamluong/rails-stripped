@@ -14,4 +14,34 @@ describe ApplicationHelper do
     expect(link).to eq("<li class=\"\"><a href=\"/users/sign_in\">Login</a></li>")
   end
   
+  it 'should handle success flash' do
+    result = helper.bootstrap_class_for('success')
+    
+    expect(result).to eq('alert-success')
+  end
+  
+  it 'should handle error flash' do
+    result = helper.bootstrap_class_for('error')
+    
+    expect(result).to eq('alert-danger')
+  end
+
+  it 'should handle alert flash' do
+    result = helper.bootstrap_class_for('alert')
+    
+    expect(result).to eq('alert-warning')
+  end
+
+  it 'should handle notice flash' do
+    result = helper.bootstrap_class_for('notice')
+    
+    expect(result).to eq('alert-info')
+  end
+  
+  it 'should handle unknown flash' do
+    result = helper.bootstrap_class_for('unknown')
+    
+    expect(result).to eq('unknown')
+  end
+  
 end
