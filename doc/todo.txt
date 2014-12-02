@@ -3,13 +3,14 @@ DELEGATE
 
 1. CSS changes to align the credit card forms. The change should not break the integration tests.
 2. app/views/sales/new.html.erb					CSS MAGIC REQUIRED
-
+3. Style the login button in users/sign_in, signup button in users/sign_up
 
 TODO
 ---------------------------------------------------------------------------------------------------
 
-1. Style flash
-2. Refactor this utility:
+1. Test boostrap helper in application helper.
+2. Run all tests and check test coverage is over 90%.
+3. Refactor this utility:
 
 # Stolen from http://www.railsonmaui.com/blog/2013/05/08/strategies-for-rails-logging-and-error-handling/
 class Utility

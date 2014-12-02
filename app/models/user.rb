@@ -28,4 +28,8 @@ class User < ActiveRecord::Base
   def orders
     Order.all(payments)
   end
+  
+  def has_orders?
+    payments.size > 1
+  end
 end
