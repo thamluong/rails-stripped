@@ -1,21 +1,12 @@
-DONE
-
-In user.rb.
-
-def save_stripe_customer_id(sci)
-  self.stripe_customer_id = sci
-  save(validate: false)                
-end
-
-Bypassing validation is not needed because the application controller creates a guest user, it bypasses the validation.
-
 DELEGATE
+---------------------------------------------------------------------------------------------------
 
 1. CSS changes to align the credit card forms. The change should not break the integration tests.
 2. app/views/sales/new.html.erb					CSS MAGIC REQUIRED
 
 
 TODO
+---------------------------------------------------------------------------------------------------
 
 1. Style flash
 2. Refactor this utility:
@@ -47,6 +38,7 @@ end
 
 Change this to use deliver_later using delayed job.
 
+---------------------------------------------------------------------------------------------------
 
 Rails.logger.info "*" * 80   
 Rails.logger.info  "*" * 80

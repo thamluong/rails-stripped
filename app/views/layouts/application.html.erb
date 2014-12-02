@@ -18,9 +18,8 @@
   </head>
 
   <body>
-	<p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-
+	  
+    <%= render partial: "shared/flash_messages", flash: flash %> 
     <%= render 'shared/navigation_bar' %>
 
 	<div class='container'>
