@@ -8,9 +8,7 @@ DELEGATE
 TODO
 ---------------------------------------------------------------------------------------------------
 
-1. Test boostrap helper in application helper.
-2. Run all tests and check test coverage is over 90%.
-3. Refactor this utility:
+1. Refactor this utility:
 
 # Stolen from http://www.railsonmaui.com/blog/2013/05/08/strategies-for-rails-logging-and-error-handling/
 class Utility
@@ -42,10 +40,3 @@ Change this to use deliver_later using delayed job.
 ---------------------------------------------------------------------------------------------------
 
 Rails.logger.info "*" * 80   
-Rails.logger.info  "*" * 80
-puts  "*" * 80
-puts  "*" * 80
-
-Rails.logger.info "*" * 80
-Rails.logger.info params.inspect
-Rails.logger.info "*" * 80
