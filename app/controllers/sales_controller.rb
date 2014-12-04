@@ -2,7 +2,10 @@ class SalesController < ApplicationController
   layout 'stripe'  
   
   def new
-    begin
+    log_message = 'One Click Checkout failed due to'
+    user_message = 'Checkout failed. We have been notified about this problem.'
+    
+    run_with_stripe_exception_handler(log_message, user_message) do
       user = current_or_guest_user
       if user.has_saved_credit_card?
         @payment = Actors::Customer::UseCases.one_click_checkout(user, params[:id])
@@ -11,12 +14,7 @@ class SalesController < ApplicationController
       else
         session[:product_id] = params[:id]
       end
-    rescue Striped::CreditCardDeclined => e
-      redisplay_form(e.message)
-    rescue Exception => e
-      StripeLogger.error "One Click Checkout failed due to #{e.message}. #{e.backtrace.join("\n")}"
-      redisplay_form("Checkout failed. We have been notified about this problem.")
-    end
+    end    
   end
 
   def create    

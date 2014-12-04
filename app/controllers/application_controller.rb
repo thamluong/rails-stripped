@@ -34,7 +34,27 @@ class ApplicationController < ActionController::Base
     session[:guest_user_id] = nil
     guest_user if with_retry
   end
-
+  
+  def run_with_exception_handler(log_message, user_message)
+    begin
+      yield
+    rescue Exception => e
+      StripeLogger.error "#{log_message} #{e.message}. #{e.backtrace.join("\n")}"
+      redisplay_form(user_message)
+    end
+  end
+  
+  def run_with_stripe_exception_handler(log_message, user_message)
+    begin
+      yield
+    rescue Striped::CreditCardDeclined => e
+      redisplay_form(e.message)
+    rescue Striped::CreditCardException, Exception => e
+      StripeLogger.error "#{log_message} #{e.message}. #{e.backtrace.join("\n")}"
+      redisplay_form(user_message)
+    end    
+  end
+  
   private
 
   def create_guest_user
