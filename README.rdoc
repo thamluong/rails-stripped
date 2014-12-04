@@ -71,7 +71,12 @@ None
 * Deployment
 
 1. Run rake secret.
-2. Set ENV["SECRET_KEY_BASE"] variable to the generated secret.
+2. Set `export SECRET_KEY_BASE=generated secret` in ~/.profile.
+
+export STRIPE_PUBLISHABLE_KEY='stripe key'
+export STRIPE_SECRET_KEY='secret key'
+
+in ~/.profile.
 
 None
 

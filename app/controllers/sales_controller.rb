@@ -35,5 +35,3 @@ class SalesController < ApplicationController
   end
   
 end
-
-
