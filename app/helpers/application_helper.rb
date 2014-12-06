@@ -12,18 +12,13 @@ module ApplicationHelper
   end
   
   def bootstrap_class_for(flash_type)
-    case flash_type
-    when "success"
-      "alert-success"   # Green
-    when "error"
-      "alert-danger"    # Red
-    when "alert"
-      "alert-warning"   # Yellow
-    when "notice"
-      "alert-info"      # Blue
-    else
-      flash_type.to_s
-    end
+    map = { 
+           "success" => "alert-success",
+           "error"   => "alert-danger",
+           "alert"   => "alert-warning",
+           "notice"  => "alert-info"    
+          }
+    map.fetch(flash_type)          
   end
   
 end

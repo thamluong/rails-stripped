@@ -44,17 +44,20 @@ class ApplicationController < ActionController::Base
     end
   end
   
-  def run_with_stripe_exception_handler(log_message, user_message)
+  def run_with_stripe_exception_handler(log_message, user_message, main, cleanup=nil)
     begin
-      yield
+      main.call
     rescue Striped::CreditCardDeclined => e
+      StripeLogger.error "#{log_message} #{e.message}. #{e.backtrace.join("\n")}"
       redisplay_form(e.message)
     rescue Striped::CreditCardException, Exception => e
       StripeLogger.error "#{log_message} #{e.message}. #{e.backtrace.join("\n")}"
       redisplay_form(user_message)
+    ensure
+      cleanup.call if cleanup
     end    
   end
-  
+    
   private
 
   def create_guest_user

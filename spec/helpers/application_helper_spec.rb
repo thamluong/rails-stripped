@@ -37,11 +37,5 @@ describe ApplicationHelper do
     
     expect(result).to eq('alert-info')
   end
-  
-  it 'should handle unknown flash' do
-    result = helper.bootstrap_class_for('unknown')
     
-    expect(result).to eq('unknown')
-  end
-  
 end
