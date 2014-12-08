@@ -22,3 +22,4 @@
 - [Stripe Subscription and Checkout : Test Coverage using SimpleCov](http://rubyplus.com/articles/1341 'Stripe Subscription and Checkout : Test Coverage using SimpleCov')
 - [Add New Credit Card using Stripe API](http://rubyplus.com/articles/1351 'Add New Credit Card using Stripe API')
 - [Stripe Webhook Testing in Development](http://rubyplus.com/articles/1361 'Stripe Webhook Testing in Development')
+- [Stripe API : Tracking Payments](https://rubyplus.com/articles/1391 'Stripe API : Tracking Payments')
