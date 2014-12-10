@@ -31,6 +31,13 @@ class SalesController < ApplicationController
     end
     
     run_with_stripe_exception_handler(log_message, user_message, main, cleanup)
+    
+    redirect_to purchase_confirmation_path(product_id: @product, payment_id: @payment)
   end
   
+  
+  def show
+    @product = Product.find(params[:product_id])
+    @payment = Payment.find(params[:payment_id])
+  end
 end

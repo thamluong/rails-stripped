@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   get 'sales/new' => 'sales#new', as: :guest_checkout
   post 'sales/create' 
+  get 'sales/show', as: :purchase_confirmation
 
   get 'products/show'
   get 'products/download' => 'products#download', as: :download
