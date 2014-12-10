@@ -23,3 +23,4 @@
 - [Add New Credit Card using Stripe API](http://rubyplus.com/articles/1351 'Add New Credit Card using Stripe API')
 - [Stripe Webhook Testing in Development](http://rubyplus.com/articles/1361 'Stripe Webhook Testing in Development')
 - [Stripe API : Tracking Payments](https://rubyplus.com/articles/1391 'Stripe API : Tracking Payments')
+- [Applying the Post Redirect Get Pattern to Striped Application](https://rubyplus.com/articles/1421 'Applying the Post Redirect Get Pattern to Striped Application') 
