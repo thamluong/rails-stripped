@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   def redisplay_form(message)
     @error_message = message
     
-    render :new
+    render :new and return
   end
 
   # :nocov:
@@ -47,6 +47,7 @@ class ApplicationController < ActionController::Base
   def run_with_stripe_exception_handler(log_message, user_message, main, cleanup=nil)
     begin
       main.call
+      true
     rescue Striped::CreditCardDeclined => e
       StripeLogger.error "#{log_message} #{e.message}. #{e.backtrace.join("\n")}"
       redisplay_form(e.message)

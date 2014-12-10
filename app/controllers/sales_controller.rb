@@ -30,9 +30,11 @@ class SalesController < ApplicationController
       @product = Product.find(session[:product_id])      
     end
     
-    run_with_stripe_exception_handler(log_message, user_message, main, cleanup)
+    success = run_with_stripe_exception_handler(log_message, user_message, main, cleanup)
     
-    redirect_to purchase_confirmation_path(product_id: @product, payment_id: @payment)
+    if success
+      redirect_to purchase_confirmation_path(product_id: @product, payment_id: @payment)
+    end
   end
   
   
