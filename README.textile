@@ -1,0 +1,155 @@
+h1. Rails Stripe Checkout
+
+Rails 4.2 example application demonstrates how to sell a product using "Stripe Checkout":https://stripe.com/checkout. 
+
+h3. Features:
+
+* Guest Checkout
+* One Click Checkout
+* Recurring Billing : Subscribe to a plan
+* Update Credit Card Expiration Date
+* Process Subscription Payment Failures using Webhooks
+* Add a New Credit Card
+* Rake task to send email reminders to customers with credit cards about to expire.
+* Rake task to test your Stripe Credentials.
+
+h3. Dependencies:
+
+* "Stripe":https://stripe.com/ for credit card payment processing
+* "Devise":https://github.com/plataformatec/devise for user management and authentication
+* "Bootstrap":http://getbootstrap.com/ front-end framework
+* "RSpec":http://rspec.info/ For testing the Rails app
+
+Gem dependencies are kept to the bare minimum to make the codebase lightweight. Check the Gemfile for other dependencies.
+
+h2. Steps to Get the Application Up and Running.
+
+h4. Software Versions:
+
+* ruby-2.1.2
+* rvm 1.25.34 (master) 
+* rails 4.2.0.beta4
+* Stripe javascript version 2
+
+h4. Configuration
+
+h5. Step 1
+
+Login to your stripe account. Copy the API Keys and set Stripe environment variables on your machine.
+
+<pre>
+export STRIPE_PUBLISHABLE_KEY='pk_test_your publishable key' 
+export STRIPE_SECRET_KEY='sk_test_your secret key' 
+</pre>
+
+For example, you could add the above lines to your ~/.bash_profile.
+
+h5. Step 2
+
+In config/secrets.yml, define the Stripe credentials:
+
+<pre>
+development:
+  secret_key_base: very-secret
+  stripe_secret_key: <%= ENV['STRIPE_SECRET_KEY'] %>
+  stripe_publishable_key: <%= ENV['STRIPE_PUBLISHABLE_KEY'] %>  
+  
+test:
+  secret_key_base: very-secret
+  stripe_secret_key: <%= ENV['STRIPE_SECRET_KEY'] %>
+  stripe_publishable_key: <%= ENV['STRIPE_PUBLISHABLE_KEY'] %>  
+
+production:
+  secret_key_base: very-secret
+  stripe_secret_key: <%= ENV['STRIPE_SECRET_KEY'] %>
+  stripe_publishable_key: <%= ENV['STRIPE_PUBLISHABLE_KEY'] %>  
+</pre>
+
+h5. Step 3
+
+Create config/initializers/stripe.rb and initialize the Stripe API Key and Stripe Public Key.
+
+<pre>
+Stripe.api_key = Rails.application.secrets.stripe_secret_key
+STRIPE_PUBLIC_KEY = Rails.application.secrets.stripe_publishable_key
+</pre>
+
+h5. Step 4
+
+Create the database and the tables by running the following rake tasks from the root of your rails project folder.
+
+<pre>
+rake db:create
+rake db:migrate
+</pre>
+
+h5. Step 5
+
+Initialize the database, run :
+
+<pre>
+rake db:seed
+</pre>
+
+h5. Step 6
+
+Run rails server:
+
+<pre>
+rails s
+</pre>
+
+h4. How to Run Tests
+
+You must have plans created in your Stripe account. Create at least one plan that has id of 'gold'. The integration tests will hit the Stripe test servers. So, you must be connected to the Internet to run the integration tests.
+
+<pre>
+rake spec:actors spec:models spec:controllers spec:gateways spec:helpers spec:features 
+</pre>
+
+
+h2. Articles with Step by Step Instructions
+
+The series of articles on Stripe will walk you through step-by-step to implement all the features. 
+
+* "Recurring Billing using Stripe API":http://rubyplus.com/articles/941 shows how to implement monthly subscription feature using Stripe API
+* "Stripe Recurring Billing Part 2":http://rubyplus.com/articles/961  shows how to implement recurring billing using Stripe.
+* "Stripe Recurring Billing Part 3":http://rubyplus.com/articles/1161  shows how to do integration testing using Capybara.
+* "Stripe Recurring Billing Part 4":http://rubyplus.com/articles/1181 displaying pricing page for subscription.
+* "Stripe Recurring Billing Part 5":http://rubyplus.com/articles/1191  shows how to test using Stripe Ruby Mock Gem.
+* "Stripe Recurring Billing Part 6":http://rubyplus.com/articles/1201  shows how to make use cases explicit to achieve traceability in a System
+* "Stripe Recurring Billing Part 7":http://rubyplus.com/articles/1211  shows how to dealing with exceptions
+* "Stripe Recurring Billing Part 8":http://rubyplus.com/articles/1231  shows how to use Devise for user account management
+* "Striped Recurring Billing Part 9":http://rubyplus.com/articles/1241  shows how to reuse integration tests
+* "Stripe Guest Checkout":http://rubyplus.com/articles/1251  shows how to use Stripe API to implement guest checkout
+* "Stripe Guest Checkout Part 2":http://rubyplus.com/articles/1261 shows how to do optional account registration at the end of a purchase.
+* "Stripe Guest Checkout and Subscriptions":http://rubyplus.com/articles/1281 Refactor to cleanup the code.
+* "One Click Checkout using Stripe":http://rubyplus.com/articles/1291  shows how to implement One-Click Checkout using Stripe API.
+* "Using Stripe Webhook to Handle Subscription Payment Failures":http://rubyplus.com/articles/1301  shows how to use Stripe Webhook to handle subscription payment failures.
+* "Stripe Subscription and Charge Customer Test Improvements":http://rubyplus.com/articles/1311  tests are improved.
+* "Stripe Recurring Billing : Update Credit Card Expiration":http://rubyplus.com/articles/1321  shows how to update credit card expiration.
+* "Stripe Recurring Billing and Update Credit Card Expiration Cleanup":http://rubyplus.com/articles/1331  cleanup code from previous version.
+* "Stripe Subscription and Checkout":http://rubyplus.com/articles/1341  shows how to generate Test Coverage using SimpleCov.
+* "Add New Credit Card using Stripe API":http://rubyplus.com/articles/1351  shows how to add new credit card using Stripe API.
+* "Stripe Webhook Testing in Development":http://rubyplus.com/articles/1361  shows how to test Stripe Webhook in Development
+* "[How to use VCR to speed up unit tests":https://rubyplus.com/articles/1431  shows how to use VCR to speed up unit tests
+
+h2. Assumptions
+
+* Move access over the network to a background job in a later version. 
+* The subscription page must be loaded using https. "How to Install Alpha SSL certificate using Moonshine for Rails 4.1":https://rubyplus.com/articles/621 to read about installing SSL on production.
+
+h2. MIT License
+
+"MIT License":http://www.opensource.org/licenses/mit-license
+
+Copyright ©2014 Bala Paranj
+
+h2. About Author
+
+"About Me Profile":http://about.me/bparanj
+"Ruby Plus Founder":https://rubyplus.com/about
+"Silicon Valley Ruby Meetup Organizer":http://www.meetup.com/silicon-valley-ruby/
+"Github Profile":https://github.com/bparanj
+"Bitbucket Profile":https://bitbucket.org/bparanj
+
