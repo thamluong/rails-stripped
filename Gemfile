@@ -35,4 +35,6 @@ group :test do
   gem 'selenium-webdriver'
   gem 'database_cleaner'
   gem 'simplecov', :require => false
+  gem 'vcr'
+  gem 'webmock'
 end
