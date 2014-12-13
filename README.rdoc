@@ -102,13 +102,13 @@ None
 - [Stripe Subscription and Checkout : Test Coverage using SimpleCov](http://rubyplus.com/articles/1341 'Stripe Subscription and Checkout : Test Coverage using SimpleCov')
 - [Add New Credit Card using Stripe API](http://rubyplus.com/articles/1351 'Add New Credit Card using Stripe API')
 - [Stripe Webhook Testing in Development](http://rubyplus.com/articles/1361 'Stripe Webhook Testing in Development')
-
+- [How to use VCR to speed up unit tests](https://rubyplus.com/articles/1431 'How to use VCR to speed up unit tests')
 
 == Assumptions
 
 1) Move access over the network to a background job in a later version. 
 2) The subscription page must be loaded using https. Refer : [How to Install Alpha SSL certificate using Moonshine for Rails 4.1
-](http://rubyplus.com/articles/621 'How to Install Alpha SSL certificate using Moonshine for Rails 4.1
+](https://rubyplus.com/articles/621 'How to Install Alpha SSL certificate using Moonshine for Rails 4.1
 ') to read about installing SSL on production.
 
 
@@ -123,7 +123,7 @@ Stripe.setPublishableKey($('meta[name="stripe-key"]').attr('content'));
 == About Author
 
 http://about.me/bparanj
-http://rubyplus.com/about
+https://rubyplus.com/about
 http://www.meetup.com/silicon-valley-ruby/
 https://github.com/bparanj
 https://bitbucket.org/bparanj
