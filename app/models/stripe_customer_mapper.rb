@@ -4,14 +4,14 @@ class StripeCustomerMapper
   end
   
   def credit_card_expiration_month
-    @customer.cards.data[0].exp_month
+    @customer.sources.data[0].exp_month
   end
   
   def credit_card_expiration_year
-    @customer.cards.data[0].exp_year
+    @customer.sources.data[0].exp_year
   end
   
   def credit_card_last4digits
-    @customer.cards.data[0].last4
+    @customer.sources.data[0].last4
   end
 end

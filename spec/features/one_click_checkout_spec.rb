@@ -15,10 +15,10 @@ feature 'One click checkout' do
     register_after_guest_checkout('test@example.com', '12345678')
     
     # 3. Logs out.
-    logout
+    # logout
     
     # 4. Logs in.
-    login('test@example.com', '12345678')
+    # login('test@example.com', '12345678')
     
     # 5. Makes a purchase without providing any credit card details using one-click checkout.
     checkout_product

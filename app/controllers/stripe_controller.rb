@@ -18,5 +18,19 @@ class StripeController < ApplicationController
     
     render text: "success"
   end  
-  
+
+  # Next version should be like this:
+  # def webhook
+  #   subscription_payment = Colt::SubscriptionPayment.new(params[:id])
+  #
+  #   if subscription_payment.failed?
+  #     stripe_customer_token = subscription_payment.stripe_customer_token
+  #     #
+  #   else
+  #     #
+  #   end
+  # end
+    
 end
+
+

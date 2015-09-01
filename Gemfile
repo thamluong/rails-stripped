@@ -1,9 +1,8 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.2.0.rc2'
+gem 'rails', '4.2.4'
 gem 'mysql2'
-gem 'bootstrap-sass', '~> 3.3.1'
-gem 'sass-rails', github: 'rails/sass-rails'
+gem 'bootstrap-sass', '~> 3.3'
 gem 'autoprefixer-rails'
 gem 'uglifier', '>= 1.3.0'
 gem 'bootswatch-rails'
@@ -20,6 +19,8 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 
 gem 'stripe'
+# gem 'colt'
+
 gem 'devise'
 
 group :development do
@@ -27,7 +28,7 @@ group :development do
 end
 
 group :development, :test do
-  gem 'rspec-rails', '~> 3.1'
+  gem 'rspec-rails', '~> 3.3'
 end
 
 group :test do

@@ -8,7 +8,7 @@ describe StripeCustomerMapper do
     
     mapper = StripeCustomerMapper.new(customer)
     
-    expect(mapper.credit_card_expiration_month).to eq(11)
+    expect(mapper.credit_card_expiration_month).to eq(9)
   end
   
   it 'should map credit card expiration year' do
@@ -17,7 +17,7 @@ describe StripeCustomerMapper do
     
     mapper = StripeCustomerMapper.new(customer)
     
-    expect(mapper.credit_card_expiration_year).to eq(2015)
+    expect(mapper.credit_card_expiration_year).to eq(2020)
   end
 
   it 'should map credit card last 4 digits' do
