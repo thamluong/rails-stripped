@@ -2,23 +2,19 @@ class StripeGateway
   
   def self.add_new_credit_card(stripe_customer_id, stripe_token)
     run_with_stripe_exception_handler('Add a new credit card failed due to') do
-      customer = Stripe::Customer.retrieve(stripe_customer_id)
-      card = customer.sources.create(source: stripe_token)
-      customer.default_card = card.id
-      customer.save
-      card
+      Colt::CreditCard.add(stripe_customer_id, stripe_token)      
     end
   end
   
   def self.create_subscription(email, stripe_token, plan_id)
     run_with_stripe_exception_handler('Create subscription failed due to') do
-      Stripe::Customer.create(description: email, card: stripe_token, plan: plan_id)
+      Colt::Subscription.create(email, stripe_token, plan_id, 'none')
     end    
   end
 
   def self.save_credit_card(stripe_token)
     run_with_stripe_exception_handler('StripeGateway.save_credit_card failed due to') do
-      customer = Stripe::Customer.create(card: stripe_token, description: "guest-user@example.com")
+      Colt::CreditCard.save(stripe_token, "guest-user@example.com")
     end    
   end
   
@@ -31,11 +27,7 @@ class StripeGateway
 
   def self.update_credit_card_expiration_date(stripe_customer_id, card_month, card_year)
     run_with_stripe_exception_handler("Failed to update credit card expiration date") do
-      customer = Stripe::Customer.retrieve(stripe_customer_id)
-      card = customer.sources.first
-      card.exp_month = card_month
-      card.exp_year = card_year
-      card.save      
+      Colt::CreditCard.update_expiration_date(stripe_customer_id, card_month, card_year)      
     end
   end
   

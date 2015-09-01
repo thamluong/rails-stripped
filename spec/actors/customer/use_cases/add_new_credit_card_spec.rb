@@ -44,7 +44,7 @@ describe 'Add new credit card' do
                                          :exp_year => 2035,
                                          :cvc => "123"})
 
-      card = Actors::Customer::UseCases.add_new_credit_card(user, new_token.id)
+      Actors::Customer::UseCases.add_new_credit_card(user, new_token.id)
     
       expect(user.credit_card.last4digits).to eq('1881')
       expect(user.credit_card.expiration_month).to eq(10)
