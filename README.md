@@ -1,6 +1,10 @@
 # README #
 
-==Articles with Step by Step Instructions
+## Our Sponsor
+
+This project is sponsored by Zepho Inc. If you are interested in learning TDD in Ruby, you can redeem the coupon here: https://www.udemy.com/learn-test-driven-development-in-ruby/?couponCode=svr
+
+## Articles with Step by Step Instructions
 
 - [Recurring Billing using Stripe API](http://rubyplus.com/articles/941 'Stripe')
 - [Stripe Recurring Billing Part 2](http://rubyplus.com/articles/961 'Stripe')
