@@ -24,7 +24,7 @@ gem 'colt'
 gem 'devise'
 
 group :development do
-  gem 'web-console', '2.0.0.beta3'
+  gem 'web-console', '2.0.0'
 end
 
 group :development, :test do
