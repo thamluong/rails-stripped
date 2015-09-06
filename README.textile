@@ -31,8 +31,8 @@ h2. Steps to Get the Application Up and Running.
 h4. Software Versions:
 
 * Ruby 2.2.3
+* Rails 4.2.4
 * rvm 1.25.34 (master) 
-* rails 4.2.4
 * Stripe javascript version 2
 
 h4. Configuration
