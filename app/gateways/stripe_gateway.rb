@@ -2,7 +2,7 @@ class StripeGateway
   
   def self.add_new_credit_card(stripe_customer_id, stripe_token)
     run_with_stripe_exception_handler('Add a new credit card failed due to') do
-      Colt::CreditCard.add(stripe_customer_id, stripe_token)      
+      Filly::CreditCard.add(stripe_customer_id, stripe_token)      
     end
   end
   
@@ -14,20 +14,20 @@ class StripeGateway
 
   def self.save_credit_card(stripe_token)
     run_with_stripe_exception_handler('StripeGateway.save_credit_card failed due to') do
-      Colt::CreditCard.save(stripe_token, "guest-user@example.com")
+      Filly::CreditCard.save(stripe_token, "guest-user@example.com")
     end    
   end
   
   # amount in cents  
   def self.charge(amount, customer_id)
     run_with_stripe_exception_handler('Could not charge customer due to') do
-      Stripe::Charge.create(amount: amount, currency: "usd", customer: customer_id)
+      Chivas::CreditCard.charge(amount, customer_id)
     end
   end
 
   def self.update_credit_card_expiration_date(stripe_customer_id, card_month, card_year)
     run_with_stripe_exception_handler("Failed to update credit card expiration date") do
-      Colt::CreditCard.update_expiration_date(stripe_customer_id, card_month, card_year)      
+      Filly::CreditCard.update_expiration_date(stripe_customer_id, card_month, card_year)      
     end
   end
   

@@ -19,7 +19,9 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 
 gem 'stripe'
-gem 'colt'
+gem 'colt', '~> 0.4.4'
+gem 'filly'
+gem 'chivas'
 
 gem 'devise'
 
