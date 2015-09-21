@@ -22,7 +22,8 @@ module Striped
     
     # Turn off Coffeescript
     config.generators.javascripts = false
-    config.autoload_paths << Rails.root.join('app/gateways')
+
+    config.autoload_paths << Rails.root.join('lib')
     
     config.action_mailer.default_url_options = { host: 'rubyplus.com' }
   end

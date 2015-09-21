@@ -1,4 +1,5 @@
 class SubscriptionsController < ApplicationController
+  include StripeExceptionHandler
   layout 'stripe'  
   
   def new    

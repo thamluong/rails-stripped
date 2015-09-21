@@ -1,4 +1,6 @@
 class SalesController < ApplicationController
+  include StripeExceptionHandler
+  
   layout 'stripe'  
   
   def new

@@ -1,4 +1,6 @@
-class CreditCardsController < ApplicationController
+class CreditCardsController < ApplicationController  
+  include StripeExceptionHandler
+  
   layout 'stripe'
   before_action :authenticate_user!
   
