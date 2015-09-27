@@ -1,0 +1,6 @@
+require_relative "#{Rails.root}/app/actors/customer/use_cases/subscribe_to_a_plan"
+require_relative "#{Rails.root}/app/actors/customer/use_cases/guest_checkout"
+require_relative "#{Rails.root}/app/actors/customer/use_cases/one_click_checkout"
+require_relative "#{Rails.root}/app/actors/customer/use_cases/update_credit_card_expiration_date"
+require_relative "#{Rails.root}/app/actors/customer/use_cases/add_new_credit_card"
+require_relative "#{Rails.root}/app/actors/customer/use_cases/register_for_an_account"
