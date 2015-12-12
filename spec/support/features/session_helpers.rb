@@ -10,8 +10,7 @@ module Features
     end
     
     def subscribe_to_a_plan(plan, credit_card)
-      sleep 5
-      click_link plan
+      click_link_after_page_load(plan)
       fill_in "Card Number", with: credit_card
       page.select '10', from: "card_month"
       page.select '2029', from: 'card_year'
@@ -20,7 +19,7 @@ module Features
     end
     
     def add_new_credit_card(credit_card)
-      sleep 5
+      wait_until_page_has_text('Card Number')
       fill_in "Card Number", with: credit_card    
       page.select '10', from: "card_month"
       page.select '2028', from: 'card_year'
@@ -28,12 +27,11 @@ module Features
     end
     
     def make_payment(credit_card)
-      sleep 2
+      wait_until_page_has_text('Card Number')
       fill_in "Card Number", with: credit_card
       page.select '10', from: "card_month"
       page.select '2029', from: 'card_year'
       click_button 'Submit Payment'
-      sleep 5 
     end
     
     def checkout_product
@@ -42,7 +40,7 @@ module Features
     end
     
     def register_after_guest_checkout(email, password)
-      click_link 'Create your free account now'
+      click_link_after_page_load('Create your free account now')
       fill_in 'Email', with: email
       fill_in 'Password', with: password
       click_button 'Sign Up'

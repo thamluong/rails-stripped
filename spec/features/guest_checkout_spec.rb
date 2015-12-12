@@ -19,7 +19,8 @@ feature 'Guest Checkout' do
 
     make_payment('4242424242424242')
 
-    click_link 'No thanks, take me to my download'
+    click_link_after_page_load('No thanks, take me to my download')
+    
     expect(page).to have_content('Download details about the book goes here')
   end
   
@@ -27,6 +28,7 @@ feature 'Guest Checkout' do
     checkout_product
     
     make_payment('4000000000000002')
+    wait_until_page_has_text('Your card was declined.')
     
     expect(page).to have_content('Your card was declined.')
   end
@@ -35,7 +37,8 @@ feature 'Guest Checkout' do
     checkout_product
 
     make_payment('4000000000000069')
-
+    wait_until_page_has_text('Your card has expired.')
+        
     expect(page).to have_content('Your card has expired.')
   end
 
@@ -43,7 +46,8 @@ feature 'Guest Checkout' do
     checkout_product
 
     make_payment('4242424242424241')
-
+    wait_until_page_has_text('Your card number is incorrect.')
+        
     expect(page).to have_content('Your card number is incorrect.')
   end
 
@@ -51,7 +55,8 @@ feature 'Guest Checkout' do
     checkout_product
 
     make_payment('4000000000000119')
-
+    wait_until_page_has_text('An error occurred while processing your card. Try again in a little bit.')
+    
     expect(page).to have_content('An error occurred while processing your card. Try again in a little bit.')
   end
 
