@@ -28,3 +28,5 @@ This project is sponsored by Zepho Inc. If you are interested in learning TDD in
 - [Stripe Webhook Testing in Development](http://rubyplus.com/articles/1361 'Stripe Webhook Testing in Development')
 - [Stripe API : Tracking Payments](https://rubyplus.com/articles/1391 'Stripe API : Tracking Payments')
 - [Applying the Post Redirect Get Pattern to Striped Application](https://rubyplus.com/articles/1421 'Applying the Post Redirect Get Pattern to Striped Application') 
+- [How to use VCR to speed up unit tests](https://rubyplus.com/articles/1431 'How to use VCR to speed up unit tests')
+- [Dealing with Common Capybara Feature Test Failures](https://rubyplus.com/articles/2871  'Dealing with Common Capybara Feature Test Failures')

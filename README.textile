@@ -31,8 +31,11 @@ h2. Steps to Get the Application Up and Running.
 h4. Software Versions:
 
 * Ruby 2.2.3
-* Rails 4.2.4
+* Rails 4.2.5
+* RSpec Rails 3.4
+* Capybara 2.5
 * rvm 1.25.34 (master) 
+* stripe-ruby 1.31
 * Stripe javascript version 2
 
 h4. Configuration
@@ -137,6 +140,7 @@ The series of articles on Stripe will walk you through step-by-step to implement
 * "Add New Credit Card using Stripe API":http://rubyplus.com/articles/1351  shows how to add new credit card using Stripe API.
 * "Stripe Webhook Testing in Development":http://rubyplus.com/articles/1361  shows how to test Stripe Webhook in Development
 * "[How to use VCR to speed up unit tests":https://rubyplus.com/articles/1431  shows how to use VCR to speed up unit tests
+* "Dealing with Common Capybara Feature Test Failures":https://rubyplus.com/articles/2871 show how to deal with delays when waiting for external services to complete.
 
 h2. Assumptions
 
