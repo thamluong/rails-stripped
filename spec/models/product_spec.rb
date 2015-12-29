@@ -8,9 +8,9 @@ describe Product, :type => :model do
   end
   
   it 'should return price in cents for a given product' do  
-    product_id = Product.first
+    product = Product.first
     
-    price_in_cents = Product.price_in_cents_for(product_id)
+    price_in_cents = Product.price_in_cents_for(product.id)
     
     expect(price_in_cents).to eq(1000)
   end
